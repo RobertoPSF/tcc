@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 Para começar a coletar dados:
 ```bash
-python keylogger.py
+./run_keylogger.sh 
 ```
 
 O programa irá:
@@ -46,16 +46,15 @@ O programa irá:
 
 ### Analisando os Dados
 
-Para analisar os dados coletados, você tem duas opções:
-
-1. Analisar um arquivo específico:
+1. Instale as dependências:
 ```bash
-python analyzer.py caminho/para/arquivo.json
+pip install -r analyzer_requirements.txt
 ```
 
-2. Analisar todos os arquivos em um diretório:
+2.Para analisar os dados coletados:
+
 ```bash
-python analyzer.py caminho/para/diretorio/
+./run_analyzer.sh <input>/
 ```
 
 O programa irá:
