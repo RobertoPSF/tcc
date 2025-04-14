@@ -26,12 +26,6 @@ O projeto consiste em dois componentes principais:
 
 ### Instalação
 
-1. Clone este repositório
-2. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
-
 ### Executando o Coletor de Dados
 
 Para começar a coletar dados:
@@ -46,13 +40,7 @@ O programa irá:
 
 ### Analisando os Dados
 
-1. Instale as dependências:
-```bash
-pip install -r analyzer_requirements.txt
-```
-
-2.Para analisar os dados coletados:
-
+Para analisar os dados coletados:
 ```bash
 ./run_analyzer.sh <input>/
 ```
