@@ -114,134 +114,11 @@ class KeyloggerAnalyzer:
         
         return app_metrics
     
-    def _format_key(self, key):
-        """Formata a tecla para exibição legível"""
-        # Se a tecla for uma string simples (caractere normal)
-        if isinstance(key, str) and not key.startswith('Key.'):
-            # Verifica se é um comando especial (c ou v após ctrl/cmd)
-            if key.lower() in ['c', 'v', 'x']:
-                return f'[{key.upper()}]'  # Retorna [C] ou [V] ou [X]
-            return key
-        
-        # Remove o prefixo 'Key.' de teclas especiais
-        if isinstance(key, str) and key.startswith('Key.'):
-            key = key[4:]  # Remove 'Key.'
-            
-            # Mapeia teclas especiais para representações mais legíveis
-            special_keys = {
-                'space': ' ',
-                'enter': '  ↵  ',
-                'tab': '  →  ',
-                'backspace': '  |←  ',
-                'delete': '  del  ',
-                'up': '  ↑  ',
-                'down': '  ↓  ',
-                'left': '  ←  ',
-                'right': '  →  ',
-                'shift': '',
-                'shift_r': '',
-                'shift_l': '',
-                'ctrl': '',
-                'ctrl_l': '',
-                'ctrl_r': '',
-                'alt': '',
-                'alt_l': '',
-                'alt_r': '',
-                'cmd': '',
-                'cmd_l': '',
-                'cmd_r': ''
-            }
-            return special_keys.get(key, '')
-        
-        return ''
-
-    def analyze_text_segments(self):
-        """Analisa os trechos de texto e comandos para identificar padrões de digitação"""
-        segments = []
-        current_segment = []
-        current_text = []
-        last_event_time = None
-        segment_start_time = None
-        last_was_ctrl = False
-        
-        for i, event in enumerate(self.data):
-            current_time = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S")
-            
-            # Verifica se é uma tecla de controle (ctrl ou cmd)
-            if event.get('key') in ['Key.ctrl', 'Key.ctrl_l', 'Key.ctrl_r', 'Key.cmd', 'Key.cmd_l', 'Key.cmd_r']:
-                last_was_ctrl = True
-                continue
-            
-            # Se a última tecla foi ctrl/cmd, verifica se é um comando especial
-            if last_was_ctrl and event.get('key') in ['c', 'v', 'x']:
-                # Se houver um segmento em andamento, salva ele
-                if current_text:
-                    segments.append({
-                        'type': 'typing',
-                        'text': ''.join(current_text),
-                        'start_time': segment_start_time,
-                        'end_time': last_event_time,
-                        'is_suspicious': False
-                    })
-                    current_text = []
-                
-                # Adiciona o comando como um segmento separado
-                command_type = {'c': 'copy', 'v': 'paste', 'x': 'cut'}[event['key']]
-                segments.append({
-                    'type': 'command',
-                    'command': command_type,
-                    'time': event['timestamp']
-                })
-                
-                last_was_ctrl = False
-                continue
-            
-            last_was_ctrl = False
-            
-            # Se for uma tecla normal
-            if event.get('key'):
-                # Inicia um novo segmento se necessário
-                if not current_text:
-                    segment_start_time = current_time
-                
-                # Verifica se há uma pausa significativa (mais de 2 segundos)
-                if last_event_time and (current_time - last_event_time).total_seconds() > 2.0:
-                    if current_text:
-                        segments.append({
-                            'type': 'typing',
-                            'text': ''.join(current_text),
-                            'start_time': segment_start_time,
-                            'end_time': last_event_time,
-                            'is_suspicious': False
-                        })
-                        current_text = []
-                    segment_start_time = current_time
-                
-                # Formata a tecla e adiciona ao texto atual
-                formatted_key = self._format_key(event['key'])
-                if formatted_key:  # Só adiciona se não for uma tecla vazia
-                    current_text.append(formatted_key)
-                
-                last_event_time = current_time
-        
-        # Adiciona o último segmento se houver
-        if current_text:
-            segments.append({
-                'type': 'typing',
-                'text': ''.join(current_text),
-                'start_time': segment_start_time,
-                'end_time': last_event_time,
-                'is_suspicious': False
-            })
-        
-        return segments
-    
     def generate_report(self):
         """Gera um relatório completo da análise"""
         typing_metrics = self.calculate_typing_metrics()
         suspicious_analysis = self.analyze_suspicious_commands()
         manhattan_metrics = self.calculate_manhattan_distance()
-        text_segments = self.analyze_text_segments()
         
         # Determina se o comportamento é suspeito
         is_suspicious = False
@@ -269,7 +146,6 @@ class KeyloggerAnalyzer:
             "typing_metrics": typing_metrics,
             "suspicious_commands": suspicious_analysis,
             "application_metrics": manhattan_metrics,
-            "text_segments": text_segments,
             "is_suspicious": is_suspicious,
             "suspicious_reasons": suspicious_reasons,
             "conclusion": "ATENÇÃO NECESSÁRIA" if is_suspicious else "COMPORTAMENTO NORMAL"

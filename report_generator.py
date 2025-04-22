@@ -206,6 +206,86 @@ class ReportGenerator:
         
         story.append(PageBreak())
     
+    def _create_text_analysis_section(self, story):
+        """Cria a seção de análise de trechos de texto"""
+        story.append(Paragraph("Análise de Trechos de Texto", self.styles['CustomHeading2']))
+        story.append(Paragraph("Esta seção mostra os trechos de texto digitados e os comandos utilizados.", self.styles['CustomBodyText']))
+        story.append(Spacer(1, 0.2*inch))
+        
+        # Adiciona estilos para o texto
+        self.styles.add(ParagraphStyle(
+            'NormalText',
+            parent=self.styles['CustomBodyText'],
+            textColor=colors.black
+        ))
+        self.styles.add(ParagraphStyle(
+            'RedText',
+            parent=self.styles['CustomBodyText'],
+            textColor=colors.red
+        ))
+        
+        # Cria uma tabela para os trechos de texto
+        data = [["Tipo", "Conteúdo", "Tempo"]]
+        
+        for segment in self.report_data['text_segments']:
+            if segment['type'] == 'typing':
+                # Formata o texto para exibição, substituindo caracteres especiais
+                text = segment['text']
+                
+                # Se o texto estiver vazio ou for só espaços, mostra um placeholder
+                if not text.strip():
+                    text = '[espaço]'
+                
+                # Usa sempre o estilo normal para texto digitado
+                content = Paragraph(text, self.styles['NormalText'])
+                
+                time_str = f"{segment['start_time'].strftime('%H:%M:%S')} - {segment['end_time'].strftime('%H:%M:%S')}"
+                data.append(["Digitação", content, time_str])
+            else:  # command
+                # Formata o comando para exibição mais amigável
+                command_map = {
+                    'copy': '[Ctrl+C] (Copiar)',
+                    'paste': '[Ctrl+V] (Colar)',
+                    'cut': '[Ctrl+X] (Recortar)'
+                }
+                command_text = command_map.get(segment['command'], segment['command'].upper())
+                content = Paragraph(command_text, self.styles['RedText'])  # Usa texto vermelho para comandos
+                data.append(["Comando", content, segment['time']])
+        
+        # Configura a tabela com larguras específicas e estilos
+        col_widths = [1.5*inch, 4*inch, 1.5*inch]
+        table = Table(data, colWidths=col_widths, rowHeights=[20] * len(data))  # Aumenta altura das linhas
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.lightblue),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.darkblue),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 12),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.white),
+            ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+            ('FONTSIZE', (0, 1), (-1, -1), 10),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('LEFTPADDING', (0, 0), (-1, -1), 6),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+            ('TOPPADDING', (0, 0), (-1, -1), 6),  # Aumenta padding vertical
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 6),  # Aumenta padding vertical
+        ]))
+        
+        story.append(table)
+        story.append(Spacer(1, 0.2*inch))
+        
+        # Adiciona legenda
+        story.append(Paragraph("Legenda:", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Texto em preto: Digitação normal", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Texto em vermelho: Comandos especiais", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Símbolos especiais:", self.styles['CustomBodyText']))
+        story.append(Paragraph("  ■ = Enter/Backspace", self.styles['CustomBodyText']))
+        story.append(Paragraph("  → = Tab (tabulação)", self.styles['CustomBodyText']))
+        story.append(PageBreak())
+    
     def generate_pdf(self):
         """Gera o relatório em PDF"""
         doc = SimpleDocTemplate(
@@ -224,6 +304,7 @@ class ReportGenerator:
         self._create_typing_metrics_section(story)
         self._create_suspicious_commands_section(story)
         self._create_application_metrics_section(story)
+        self._create_text_analysis_section(story)
         
         # Gera o PDF
         doc.build(story)
