@@ -164,6 +164,14 @@ class KeyloggerAnalyzer:
         segment_start_time = None
         last_was_ctrl = False
         
+        # Calcula métricas base para comparação usando Manhattan
+        typing_metrics = self.calculate_typing_metrics()
+        base_hold_time = typing_metrics['hold_time_avg']
+        base_flight_time = typing_metrics['flight_time_avg']
+        
+        # Armazena eventos do segmento atual para análise
+        segment_events = []
+        
         for i, event in enumerate(self.data):
             current_time = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S")
             
@@ -174,16 +182,18 @@ class KeyloggerAnalyzer:
             
             # Se a última tecla foi ctrl/cmd, verifica se é um comando especial
             if last_was_ctrl and event.get('key') in ['c', 'v', 'x']:
-                # Se houver um segmento em andamento, salva ele
+                # Se houver um segmento em andamento, analisa e salva ele
                 if current_text:
+                    is_suspicious = self._analyze_segment_manhattan(segment_events, base_hold_time, base_flight_time)
                     segments.append({
                         'type': 'typing',
                         'text': ''.join(current_text),
                         'start_time': segment_start_time,
                         'end_time': last_event_time,
-                        'is_suspicious': False
+                        'is_suspicious': is_suspicious
                     })
                     current_text = []
+                    segment_events = []
                 
                 # Adiciona o comando como um segmento separado
                 command_type = {'c': 'copy', 'v': 'paste', 'x': 'cut'}[event['key']]
@@ -207,34 +217,62 @@ class KeyloggerAnalyzer:
                 # Verifica se há uma pausa significativa (mais de 2 segundos)
                 if last_event_time and (current_time - last_event_time).total_seconds() > 2.0:
                     if current_text:
+                        is_suspicious = self._analyze_segment_manhattan(segment_events, base_hold_time, base_flight_time)
                         segments.append({
                             'type': 'typing',
                             'text': ''.join(current_text),
                             'start_time': segment_start_time,
                             'end_time': last_event_time,
-                            'is_suspicious': False
+                            'is_suspicious': is_suspicious
                         })
                         current_text = []
+                        segment_events = []
                     segment_start_time = current_time
                 
                 # Formata a tecla e adiciona ao texto atual
                 formatted_key = self._format_key(event['key'])
                 if formatted_key:  # Só adiciona se não for uma tecla vazia
                     current_text.append(formatted_key)
+                    segment_events.append(event)  # Armazena o evento para análise
                 
                 last_event_time = current_time
         
         # Adiciona o último segmento se houver
         if current_text:
+            is_suspicious = self._analyze_segment_manhattan(segment_events, base_hold_time, base_flight_time)
             segments.append({
                 'type': 'typing',
                 'text': ''.join(current_text),
                 'start_time': segment_start_time,
                 'end_time': last_event_time,
-                'is_suspicious': False
+                'is_suspicious': is_suspicious
             })
         
         return segments
+
+    def _analyze_segment_manhattan(self, events, base_hold_time, base_flight_time):
+        """Analisa um segmento de texto usando distância de Manhattan para determinar se é suspeito"""
+        if len(events) < 2:
+            return False
+            
+        # Calcula métricas do segmento atual
+        hold_times = [event['hold_time'] for event in events if 'hold_time' in event and event['hold_time'] is not None]
+        flight_times = [event['flight_time'] for event in events if 'flight_time' in event and event['flight_time'] is not None]
+        
+        if not hold_times or not flight_times:
+            return False
+            
+        segment_hold_avg = np.mean(hold_times)
+        segment_flight_avg = np.mean(flight_times)
+        
+        # Calcula a distância de Manhattan
+        manhattan_distance = abs(segment_hold_avg - base_hold_time) + abs(segment_flight_avg - base_flight_time)
+        
+        # Define limiares para considerar um segmento como suspeito
+        # Se a distância for maior que 50% da média base, considera suspeito
+        threshold = (base_hold_time + base_flight_time) * 0.5
+        
+        return manhattan_distance > threshold
     
     def generate_report(self):
         """Gera um relatório completo da análise"""

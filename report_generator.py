@@ -236,8 +236,9 @@ class ReportGenerator:
                 if not text.strip():
                     text = '[espaço]'
                 
-                # Usa sempre o estilo normal para texto digitado
-                content = Paragraph(text, self.styles['NormalText'])
+                # Usa o estilo apropriado baseado no status de suspeito
+                style = 'RedText' if segment['is_suspicious'] else 'NormalText'
+                content = Paragraph(text, self.styles[style])
                 
                 time_str = f"{segment['start_time'].strftime('%H:%M:%S')} - {segment['end_time'].strftime('%H:%M:%S')}"
                 data.append(["Digitação", content, time_str])
@@ -280,9 +281,10 @@ class ReportGenerator:
         # Adiciona legenda
         story.append(Paragraph("Legenda:", self.styles['CustomBodyText']))
         story.append(Paragraph("• Texto em preto: Digitação normal", self.styles['CustomBodyText']))
-        story.append(Paragraph("• Texto em vermelho: Comandos especiais", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Texto em vermelho: Trechos suspeitos e comandos especiais", self.styles['CustomBodyText']))
         story.append(Paragraph("• Símbolos especiais:", self.styles['CustomBodyText']))
-        story.append(Paragraph("  ■ = Enter/Backspace", self.styles['CustomBodyText']))
+        story.append(Paragraph("  ↵ = Enter", self.styles['CustomBodyText']))
+        story.append(Paragraph(" |← = Backspace", self.styles['CustomBodyText']))
         story.append(Paragraph("  → = Tab (tabulação)", self.styles['CustomBodyText']))
         story.append(PageBreak())
     
