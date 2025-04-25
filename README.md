@@ -28,9 +28,14 @@ O projeto consiste em dois componentes principais:
 
 ### Executando o Coletor de Dados
 
-Para começar a coletar dados:
+Para começar a coletar dados *COM* o conteúdo das teclas alfanuméricas:
 ```bash
-./run_keylogger.sh 
+./keylogger.sh 
+```
+
+Para começar a coletar dados *SEM* o conteúdo das teclas alfanuméricas:
+```bash
+./limite_keylogger.sh 
 ```
 
 O programa irá:
@@ -42,7 +47,7 @@ O programa irá:
 
 Para analisar os dados coletados:
 ```bash
-./run_analyzer.sh <input>/
+./analyzer.sh <input>/
 ```
 
 O programa irá:

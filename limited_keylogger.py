@@ -5,10 +5,11 @@ import os
 import time
 import sys
 import platform
+import re
 
-class Keylogger:
+class LimitedKeylogger:
     def __init__(self):
-        self.log_file = "keylog.json"
+        self.log_file = "limited_keylog.json"
         self.keys_pressed = []
         self.start_time = datetime.now()
         self.last_key_time = None
@@ -25,6 +26,11 @@ class Keylogger:
         }
         self.running = True
         self.system = platform.system()
+
+    def is_alphanumeric(self, key_char):
+        if not key_char:
+            return False
+        return bool(re.match(r'^[a-zA-Z0-9]$', key_char))
 
     def on_key_press(self, key):
         if key == keyboard.Key.f12:
@@ -44,7 +50,8 @@ class Keylogger:
             self.special_commands[key] = True
         
         command_type = None
-        if self.special_commands[keyboard.Key.ctrl_l] or self.special_commands[keyboard.Key.ctrl_r]:
+        if (self.special_commands[keyboard.Key.ctrl_l] or self.special_commands[keyboard.Key.ctrl_r] or
+            self.special_commands[keyboard.Key.cmd] or self.special_commands[keyboard.Key.cmd_r]):
             if hasattr(key, 'char') and key.char == 'v':
                 command_type = "paste"
             elif hasattr(key, 'char') and key.char == 'c':
@@ -63,12 +70,14 @@ class Keylogger:
             key_char = str(key)
 
         key_data = {
-            "key": key_char,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3],
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "application": self.get_active_window(),
             "flight_time": round(flight_time, 3) if flight_time is not None else None,
             "command_type": command_type
         }
+
+        if not self.is_alphanumeric(key_char) or command_type is not None:
+            key_data["key"] = key_char
         
         self.keys_pressed.append(key_data)
         self.last_key_time = current_time
@@ -117,7 +126,7 @@ class Keylogger:
             json.dump(self.keys_pressed, f, indent=4)
 
     def start(self):
-        print("Keylogger iniciado. Pressione F12 para finalizar.")
+        print("Limited Keylogger iniciado. Pressione F12 para finalizar.")
         with keyboard.Listener(
             on_press=self.on_key_press,
             on_release=self.on_key_release
@@ -125,6 +134,5 @@ class Keylogger:
             listener.join()
 
 if __name__ == "__main__":
-    keylogger = Keylogger()
+    keylogger = LimitedKeylogger()
     keylogger.start() 
-    

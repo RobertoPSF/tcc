@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import os
 import sys
-import glob
 from collections import Counter
 from report_generator import ReportGenerator
 import io
@@ -27,7 +26,6 @@ class KeyloggerAnalyzer:
     
     def calculate_typing_metrics(self):
         """Calcula métricas de digitação"""
-        # Filtra apenas eventos com hold_time e flight_time
         valid_events = [event for event in self.data if 'hold_time' in event and event['hold_time'] is not None]
         
         if not valid_events:
@@ -39,11 +37,9 @@ class KeyloggerAnalyzer:
                 "total_events": 0
             }
         
-        # Extrai hold_time e flight_time
         hold_times = [event['hold_time'] for event in valid_events if event['hold_time'] is not None]
         flight_times = [event['flight_time'] for event in valid_events if event['flight_time'] is not None]
         
-        # Calcula médias e desvios padrão
         hold_time_avg = np.mean(hold_times) if hold_times else 0
         hold_time_std = np.std(hold_times) if hold_times else 0
         flight_time_avg = np.mean(flight_times) if flight_times else 0
@@ -58,30 +54,71 @@ class KeyloggerAnalyzer:
         }
     
     def analyze_suspicious_commands(self):
-        """Analisa a frequência de comandos suspeitos"""
-        # Comandos considerados suspeitos
-        suspicious_commands = ["paste", "copy", "cut"]
+        """Analisa a frequência de comandos suspeitos e sua distância de Manhattan"""
+        suspicious_commands = ["paste", "copy", "cut", "backspace", "cursor_movement"]
         
-        # Conta a ocorrência de cada comando
         command_counts = Counter()
+        command_sequences = []
+        current_sequence = []
+        
         for event in self.data:
             if event.get('command_type') in suspicious_commands:
+                current_sequence.append(event)
                 command_counts[event['command_type']] += 1
+            elif current_sequence:
+                command_sequences.append(current_sequence)
+                current_sequence = []
         
-        # Calcula a porcentagem de comandos suspeitos
+        if current_sequence:
+            command_sequences.append(current_sequence)
+        
+        manhattan_distances = []
+        for sequence in command_sequences:
+            if len(sequence) > 1:
+                distance = self._calculate_sequence_manhattan(sequence)
+                manhattan_distances.append(distance)
+        
         total_commands = sum(command_counts.values())
         total_events = len(self.data)
         suspicious_percentage = (total_commands / total_events * 100) if total_events > 0 else 0
         
+        avg_manhattan = sum(manhattan_distances) / len(manhattan_distances) if manhattan_distances else 0
+        
+        print(f"Total de comandos: {total_commands}")
+        print(f"Total de eventos: {total_events}")
+        print(f"Porcentagem suspeita: {suspicious_percentage}%")
+        
         return {
             "command_counts": dict(command_counts),
             "suspicious_percentage": round(suspicious_percentage, 2),
-            "total_commands": total_commands
+            "total_commands": total_commands,
+            "avg_manhattan_distance": round(avg_manhattan, 2),
+            "command_sequences": len(command_sequences)
         }
+    
+    def _calculate_sequence_manhattan(self, sequence):
+        """Calcula a distância de Manhattan para uma sequência de comandos"""
+        if len(sequence) < 2:
+            return 0
+            
+        total_distance = 0
+        for i in range(len(sequence) - 1):
+            current = sequence[i]
+            next_event = sequence[i + 1]
+            
+            time_diff = abs((datetime.strptime(next_event['timestamp'], "%Y-%m-%d %H:%M:%S") - 
+                           datetime.strptime(current['timestamp'], "%Y-%m-%d %H:%M:%S")).total_seconds())
+            
+            hold_diff = abs(next_event.get('hold_time', 0) - current.get('hold_time', 0))
+            
+            flight_diff = abs(next_event.get('flight_time', 0) - current.get('flight_time', 0))
+            
+            total_distance += time_diff + hold_diff + flight_diff
+            
+        return total_distance
     
     def calculate_manhattan_distance(self):
         """Calcula a distância de Manhattan para avaliar o padrão comportamental"""
-        # Agrupa eventos por aplicação
         app_events = {}
         for event in self.data:
             app = event.get('application', 'Unknown')
@@ -89,19 +126,15 @@ class KeyloggerAnalyzer:
                 app_events[app] = []
             app_events[app].append(event)
         
-        # Calcula métricas por aplicação
         app_metrics = {}
         for app, events in app_events.items():
-            # Calcula tempo total gasto em cada aplicação
             if len(events) >= 2:
                 start_time = datetime.strptime(events[0]['timestamp'], "%Y-%m-%d %H:%M:%S")
                 end_time = datetime.strptime(events[-1]['timestamp'], "%Y-%m-%d %H:%M:%S")
                 duration = (end_time - start_time).total_seconds()
                 
-                # Calcula taxa de digitação (eventos por segundo)
                 typing_rate = len(events) / duration if duration > 0 else 0
                 
-                # Calcula porcentagem de comandos suspeitos
                 suspicious_count = sum(1 for e in events if e.get('command_type') in ["paste", "copy", "cut"])
                 suspicious_ratio = suspicious_count / len(events) if len(events) > 0 else 0
                 
@@ -116,18 +149,14 @@ class KeyloggerAnalyzer:
     
     def _format_key(self, key):
         """Formata a tecla para exibição legível"""
-        # Se a tecla for uma string simples (caractere normal)
         if isinstance(key, str) and not key.startswith('Key.'):
-            # Verifica se é um comando especial (c ou v após ctrl/cmd)
             if key.lower() in ['c', 'v', 'x']:
-                return f'[{key.upper()}]'  # Retorna [C] ou [V] ou [X]
+                return f'[{key.upper()}]'
             return key
         
-        # Remove o prefixo 'Key.' de teclas especiais
         if isinstance(key, str) and key.startswith('Key.'):
-            key = key[4:]  # Remove 'Key.'
+            key = key[4:]
             
-            # Mapeia teclas especiais para representações mais legíveis
             special_keys = {
                 'space': ' ',
                 'enter': '  ↵  ',
@@ -164,25 +193,20 @@ class KeyloggerAnalyzer:
         segment_start_time = None
         last_was_ctrl = False
         
-        # Calcula métricas base para comparação usando Manhattan
         typing_metrics = self.calculate_typing_metrics()
         base_hold_time = typing_metrics['hold_time_avg']
         base_flight_time = typing_metrics['flight_time_avg']
         
-        # Armazena eventos do segmento atual para análise
         segment_events = []
         
         for i, event in enumerate(self.data):
             current_time = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S")
             
-            # Verifica se é uma tecla de controle (ctrl ou cmd)
             if event.get('key') in ['Key.ctrl', 'Key.ctrl_l', 'Key.ctrl_r', 'Key.cmd', 'Key.cmd_l', 'Key.cmd_r']:
                 last_was_ctrl = True
                 continue
             
-            # Se a última tecla foi ctrl/cmd, verifica se é um comando especial
             if last_was_ctrl and event.get('key') in ['c', 'v', 'x']:
-                # Se houver um segmento em andamento, analisa e salva ele
                 if current_text:
                     is_suspicious = self._analyze_segment_manhattan(segment_events, base_hold_time, base_flight_time)
                     segments.append({
@@ -195,7 +219,6 @@ class KeyloggerAnalyzer:
                     current_text = []
                     segment_events = []
                 
-                # Adiciona o comando como um segmento separado
                 command_type = {'c': 'copy', 'v': 'paste', 'x': 'cut'}[event['key']]
                 segments.append({
                     'type': 'command',
@@ -208,13 +231,10 @@ class KeyloggerAnalyzer:
             
             last_was_ctrl = False
             
-            # Se for uma tecla normal
             if event.get('key'):
-                # Inicia um novo segmento se necessário
                 if not current_text:
                     segment_start_time = current_time
                 
-                # Verifica se há uma pausa significativa (mais de 2 segundos)
                 if last_event_time and (current_time - last_event_time).total_seconds() > 2.0:
                     if current_text:
                         is_suspicious = self._analyze_segment_manhattan(segment_events, base_hold_time, base_flight_time)
@@ -229,15 +249,13 @@ class KeyloggerAnalyzer:
                         segment_events = []
                     segment_start_time = current_time
                 
-                # Formata a tecla e adiciona ao texto atual
                 formatted_key = self._format_key(event['key'])
-                if formatted_key:  # Só adiciona se não for uma tecla vazia
+                if formatted_key:
                     current_text.append(formatted_key)
-                    segment_events.append(event)  # Armazena o evento para análise
+                    segment_events.append(event)
                 
                 last_event_time = current_time
         
-        # Adiciona o último segmento se houver
         if current_text:
             is_suspicious = self._analyze_segment_manhattan(segment_events, base_hold_time, base_flight_time)
             segments.append({
@@ -255,7 +273,6 @@ class KeyloggerAnalyzer:
         if len(events) < 2:
             return False
             
-        # Calcula métricas do segmento atual
         hold_times = [event['hold_time'] for event in events if 'hold_time' in event and event['hold_time'] is not None]
         flight_times = [event['flight_time'] for event in events if 'flight_time' in event and event['flight_time'] is not None]
         
@@ -265,11 +282,8 @@ class KeyloggerAnalyzer:
         segment_hold_avg = np.mean(hold_times)
         segment_flight_avg = np.mean(flight_times)
         
-        # Calcula a distância de Manhattan
         manhattan_distance = abs(segment_hold_avg - base_hold_time) + abs(segment_flight_avg - base_flight_time)
         
-        # Define limiares para considerar um segmento como suspeito
-        # Se a distância for maior que 50% da média base, considera suspeito
         threshold = (base_hold_time + base_flight_time) * 0.5
         
         return manhattan_distance > threshold
@@ -281,26 +295,24 @@ class KeyloggerAnalyzer:
         manhattan_metrics = self.calculate_manhattan_distance()
         text_segments = self.analyze_text_segments()
         
-        # Determina se o comportamento é suspeito
         is_suspicious = False
         suspicious_reasons = []
         
-        # Critérios para considerar suspeito
-        if suspicious_analysis["suspicious_percentage"] > 15:
+        if suspicious_analysis["suspicious_percentage"] > 5 or suspicious_analysis["total_commands"] > 0:
             is_suspicious = True
-            suspicious_reasons.append(f"Alta porcentagem de comandos suspeitos: {suspicious_analysis['suspicious_percentage']}%")
+            if suspicious_analysis["total_commands"] > 0:
+                suspicious_reasons.append(f"Comandos suspeitos detectados: {suspicious_analysis['total_commands']} ({suspicious_analysis['suspicious_percentage']}%)")
+                if suspicious_analysis["avg_manhattan_distance"] > 0:
+                    suspicious_reasons.append(f"Distância de Manhattan média: {suspicious_analysis['avg_manhattan_distance']:.2f}")
         
-        # Verifica padrões de digitação anormais
         if typing_metrics["hold_time_std"] > 0.2 or typing_metrics["flight_time_std"] > 0.3:
             is_suspicious = True
             suspicious_reasons.append("Padrão de digitação irregular (alta variabilidade)")
         
-        # Verifica se há muitas mudanças de aplicação
         if len(manhattan_metrics) > 5:
             is_suspicious = True
             suspicious_reasons.append(f"Muitas aplicações diferentes utilizadas: {len(manhattan_metrics)}")
         
-        # Gera o relatório
         report = {
             "file_analyzed": self.json_file,
             "analysis_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -317,21 +329,17 @@ class KeyloggerAnalyzer:
     
     def plot_typing_patterns(self):
         """Gera gráficos de padrões de digitação e retorna como bytes"""
-        # Extrai dados para plotagem
         hold_times = [event['hold_time'] for event in self.data if 'hold_time' in event and event['hold_time'] is not None]
         flight_times = [event['flight_time'] for event in self.data if 'flight_time' in event and event['flight_time'] is not None]
         
-        # Cria figura com subplots
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
         
-        # Plot de hold times
         if hold_times:
             ax1.hist(hold_times, bins=30, alpha=0.7, color='blue')
             ax1.set_title('Distribuição de Tempos de Pressionamento (Hold Time)')
             ax1.set_xlabel('Tempo (segundos)')
             ax1.set_ylabel('Frequência')
         
-        # Plot de flight times
         if flight_times:
             ax2.hist(flight_times, bins=30, alpha=0.7, color='green')
             ax2.set_title('Distribuição de Tempos Entre Teclas (Flight Time)')
@@ -340,7 +348,6 @@ class KeyloggerAnalyzer:
         
         plt.tight_layout()
         
-        # Salva o gráfico em um buffer de memória
         buf = io.BytesIO()
         plt.savefig(buf, format='png')
         plt.close()
@@ -349,7 +356,6 @@ class KeyloggerAnalyzer:
 
     def generate_pdf_report(self, report, output_file="analysis_report.pdf"):
         """Gera um relatório em PDF"""
-        # Gera os gráficos e adiciona ao relatório
         graph_data = self.plot_typing_patterns()
         report['graph_data'] = graph_data
         
@@ -358,19 +364,15 @@ class KeyloggerAnalyzer:
 
 def process_json_files(input_path, output_dir):
     """Processa arquivos JSON (seja um arquivo único ou um diretório com múltiplos arquivos)"""
-    # Verifica se o caminho de entrada existe
     if not os.path.exists(input_path):
         print(f"Caminho não encontrado: {input_path}")
         sys.exit(1)
     
-    # Cria o diretório de saída se não existir
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
         print(f"Diretório de saída criado: {output_dir}")
     
-    # Determina se o caminho é um arquivo ou diretório
     if os.path.isfile(input_path):
-        # Se for um arquivo, verifica se é JSON
         if input_path.endswith('.json'):
             json_files = [input_path]
             input_dir = os.path.dirname(input_path)
@@ -378,7 +380,6 @@ def process_json_files(input_path, output_dir):
             print(f"O arquivo {input_path} não é um arquivo JSON")
             sys.exit(1)
     else:
-        # Se for um diretório, encontra todos os arquivos JSON
         input_dir = input_path
         all_files = os.listdir(input_dir)
         json_files = [os.path.join(input_dir, f) for f in all_files 
@@ -390,26 +391,20 @@ def process_json_files(input_path, output_dir):
     
     print(f"Encontrados {len(json_files)} arquivo(s) JSON para análise\n")
     
-    # Processa cada arquivo JSON
     for json_file_path in json_files:
         try:
-            # Extrai o nome do arquivo sem a extensão para usar no nome do relatório
             json_file_name = os.path.basename(json_file_path)
             file_name_without_ext = os.path.splitext(json_file_name)[0]
             
-            # Define o caminho do arquivo de saída
             output_file = os.path.join(output_dir, f"{file_name_without_ext}_report.pdf")
             
             print(f"Processando arquivo: {json_file_name}")
             
-            # Cria o analisador e gera o relatório
             analyzer = KeyloggerAnalyzer(json_file_path)
             report = analyzer.generate_report()
             
-            # Gera o relatório PDF
             analyzer.generate_pdf_report(report, output_file)
             
-            # Exibe resumo do relatório
             print(f"\n===== RESUMO DA ANÁLISE: {json_file_name} =====")
             print(f"Arquivo analisado: {report['file_analyzed']}")
             print(f"Data da análise: {report['analysis_date']}")
