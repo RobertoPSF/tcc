@@ -1,6 +1,7 @@
 import json
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import zscore
 from datetime import datetime
 import os
 import sys
@@ -19,7 +20,6 @@ class KeyloggerAnalyzer:
         try:
             with open(self.json_file, 'r', encoding='utf-8') as f:
                 self.data = json.load(f)
-            print(f"Dados carregados com sucesso: {len(self.data)} eventos registrados.")
         except Exception as e:
             print(f"Erro ao carregar o arquivo: {e}")
             sys.exit(1)
@@ -84,10 +84,6 @@ class KeyloggerAnalyzer:
         
         avg_manhattan = sum(manhattan_distances) / len(manhattan_distances) if manhattan_distances else 0
         
-        print(f"Total de comandos: {total_commands}")
-        print(f"Total de eventos: {total_events}")
-        print(f"Porcentagem suspeita: {suspicious_percentage}%")
-        
         return {
             "command_counts": dict(command_counts),
             "suspicious_percentage": round(suspicious_percentage, 2),
@@ -99,23 +95,27 @@ class KeyloggerAnalyzer:
     def _calculate_sequence_manhattan(self, sequence):
         """Calcula a distância de Manhattan para uma sequência de comandos"""
         if len(sequence) < 2:
-            return 0
-            
-        total_distance = 0
+            return 0.0
+
+        total_distance = 0.0
         for i in range(len(sequence) - 1):
             current = sequence[i]
             next_event = sequence[i + 1]
-            
-            time_diff = abs((datetime.strptime(next_event['timestamp'], "%Y-%m-%d %H:%M:%S") - 
-                           datetime.strptime(current['timestamp'], "%Y-%m-%d %H:%M:%S")).total_seconds())
-            
-            hold_diff = abs(next_event.get('hold_time', 0) - current.get('hold_time', 0))
-            
-            flight_diff = abs(next_event.get('flight_time', 0) - current.get('flight_time', 0))
-            
+
+            try:
+                t1 = datetime.strptime(current['timestamp'], "%Y-%m-%d %H:%M:%S")
+                t2 = datetime.strptime(next_event['timestamp'], "%Y-%m-%d %H:%M:%S")
+            except Exception:
+                continue  # Pula se o timestamp for inválido
+
+            time_diff = abs((t2 - t1).total_seconds())
+            hold_diff = abs((next_event.get('hold_time') or 0) - (current.get('hold_time') or 0))
+            flight_diff = abs((next_event.get('flight_time') or 0) - (current.get('flight_time') or 0))
+
             total_distance += time_diff + hold_diff + flight_diff
-            
+
         return total_distance
+
     
     def calculate_manhattan_distance(self):
         """Calcula a distância de Manhattan para avaliar o padrão comportamental"""
@@ -146,7 +146,28 @@ class KeyloggerAnalyzer:
                 }
         
         return app_metrics
-    
+
+    def calculate_outlier_count(self, threshold=3.0):
+        """Conta quantos tempos de digitação são outliers com base no Z-score"""
+        hold_times = np.array([event['hold_time'] for event in self.data if 'hold_time' in event and event['hold_time'] is not None])
+        flight_times = np.array([event['flight_time'] for event in self.data if 'flight_time' in event and event['flight_time'] is not None])
+        
+        outliers = {
+            "hold_time_outliers": 0,
+            "flight_time_outliers": 0
+        }
+
+        if len(hold_times) > 1:
+            hold_z = zscore(hold_times)
+            outliers["hold_time_outliers"] = int(np.sum(np.abs(hold_z) > threshold))
+
+        if len(flight_times) > 1:
+            flight_z = zscore(flight_times)
+            outliers["flight_time_outliers"] = int(np.sum(np.abs(flight_z) > threshold))
+
+        return outliers
+
+
     def _format_key(self, key):
         """Formata a tecla para exibição legível"""
         if isinstance(key, str) and not key.startswith('Key.'):
@@ -294,7 +315,12 @@ class KeyloggerAnalyzer:
         suspicious_analysis = self.analyze_suspicious_commands()
         manhattan_metrics = self.calculate_manhattan_distance()
         text_segments = self.analyze_text_segments()
-        
+        outlier_counts = self.calculate_outlier_count()
+
+        total_typing_segments = sum(1 for seg in text_segments if seg["type"] == "typing")
+        suspicious_typing_segments = sum(1 for seg in text_segments if seg["type"] == "typing" and seg.get("is_suspicious"))
+        suspicious_typing_ratio = (suspicious_typing_segments / total_typing_segments * 100) if total_typing_segments > 0 else 0
+
         is_suspicious = False
         suspicious_reasons = []
         
@@ -313,6 +339,14 @@ class KeyloggerAnalyzer:
             is_suspicious = True
             suspicious_reasons.append(f"Muitas aplicações diferentes utilizadas: {len(manhattan_metrics)}")
         
+        if suspicious_typing_ratio > 30:
+            is_suspicious = True
+            suspicious_reasons.append(f"{suspicious_typing_segments} de {total_typing_segments} trechos de digitação marcados como suspeitos ({suspicious_typing_ratio:.2f}%)")
+
+        if outlier_counts["hold_time_outliers"] > 5 or outlier_counts["flight_time_outliers"] > 5:
+            is_suspicious = True
+            suspicious_reasons.append(f"Outliers detectados: {outlier_counts['hold_time_outliers']} em hold time e {outlier_counts['flight_time_outliers']} em flight time")
+
         report = {
             "file_analyzed": self.json_file,
             "analysis_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -321,7 +355,9 @@ class KeyloggerAnalyzer:
             "application_metrics": manhattan_metrics,
             "text_segments": text_segments,
             "is_suspicious": is_suspicious,
+            "suspicious_typing_ratio": round(suspicious_typing_ratio, 2),
             "suspicious_reasons": suspicious_reasons,
+            "outlier_counts": outlier_counts,
             "conclusion": "ATENÇÃO NECESSÁRIA" if is_suspicious else "COMPORTAMENTO NORMAL"
         }
         
@@ -389,8 +425,6 @@ def process_json_files(input_path, output_dir):
         print(f"Nenhum arquivo JSON encontrado em: {input_path}")
         sys.exit(1)
     
-    print(f"Encontrados {len(json_files)} arquivo(s) JSON para análise\n")
-    
     for json_file_path in json_files:
         try:
             json_file_name = os.path.basename(json_file_path)
@@ -398,34 +432,20 @@ def process_json_files(input_path, output_dir):
             
             output_file = os.path.join(output_dir, f"{file_name_without_ext}_report.pdf")
             
-            print(f"Processando arquivo: {json_file_name}")
-            
             analyzer = KeyloggerAnalyzer(json_file_path)
             report = analyzer.generate_report()
             
             analyzer.generate_pdf_report(report, output_file)
-            
-            print(f"\n===== RESUMO DA ANÁLISE: {json_file_name} =====")
-            print(f"Arquivo analisado: {report['file_analyzed']}")
-            print(f"Data da análise: {report['analysis_date']}")
-            print(f"Total de eventos: {report['typing_metrics']['total_events']}")
-            print(f"Tempo médio de pressionamento: {report['typing_metrics']['hold_time_avg']} segundos")
-            print(f"Tempo médio entre teclas: {report['typing_metrics']['flight_time_avg']} segundos")
-            print(f"Porcentagem de comandos suspeitos: {report['suspicious_commands']['suspicious_percentage']}%")
-            
+                        
             if report['is_suspicious']:
                 print("\nRazões para suspeita:")
                 for reason in report['suspicious_reasons']:
                     print(f"- {reason}")
             
-            print(f"\nRelatório PDF gerado com sucesso em: {output_file}\n")
-            
         except Exception as e:
             print(f"Erro ao processar o arquivo {json_file_name}: {e}")
             continue
     
-    print("Processo concluído! Todos os arquivos foram analisados.")
-
 def main():
     if len(sys.argv) < 2:
         print("Uso: python analyzer.py arquivo_ou_diretorio")

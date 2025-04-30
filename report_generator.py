@@ -146,6 +146,51 @@ class ReportGenerator:
         
         story.append(PageBreak())
     
+    def _create_outlier_analysis_section(self, story):
+        """Cria a seção de análise de outliers"""
+        story.append(Paragraph("Análise de Outliers (Z-score)", self.styles['CustomHeading2']))
+        story.append(Paragraph("Esta seção mostra a análise de outliers baseada no Z-score para tempos de digitação.", self.styles['CustomBodyText']))
+        story.append(Spacer(1, 0.2*inch))
+        
+        data = [
+            ["Métrica", "Número de Outliers"],
+            ["Tempo de Pressionamento (Hold Time)", str(self.report_data['outlier_counts']['hold_time_outliers'])],
+            ["Tempo Entre Teclas (Flight Time)", str(self.report_data['outlier_counts']['flight_time_outliers'])]
+        ]
+        
+        table = Table(data, colWidths=[4*inch, 2*inch])
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.lightblue),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.darkblue),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 12),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.white),
+            ('TEXTCOLOR', (0, 1), (-1, -1), colors.black),
+            ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+            ('FONTSIZE', (0, 1), (-1, -1), 10),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ]))
+        
+        story.append(table)
+        story.append(Spacer(1, 0.2*inch))
+        
+        # Adiciona uma explicação sobre o Z-score
+        story.append(Paragraph("Sobre o Z-score:", self.styles['CustomBodyText']))
+        story.append(Paragraph("• O Z-score mede quantos desvios padrão um valor está da média", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Valores com |Z-score| > 3 são considerados outliers", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Muitos outliers podem indicar comportamento irregular de digitação", self.styles['CustomBodyText']))
+        
+        if self.report_data['outlier_counts']['hold_time_outliers'] > 5 or self.report_data['outlier_counts']['flight_time_outliers'] > 5:
+            story.append(Spacer(1, 0.2*inch))
+            story.append(Paragraph("SINAIS DE ALERTA:", self.styles['Alert']))
+            story.append(Paragraph(f"• Número elevado de outliers detectados: {self.report_data['outlier_counts']['hold_time_outliers']} em hold time e {self.report_data['outlier_counts']['flight_time_outliers']} em flight time", self.styles['Alert']))
+        
+        story.append(PageBreak())
+    
     def _create_application_metrics_section(self, story):
         """Cria a seção de métricas por aplicação"""
         story.append(Paragraph("Métricas por Aplicação", self.styles['CustomHeading2']))
@@ -279,9 +324,9 @@ class ReportGenerator:
         self._create_title_page(story)
         self._create_typing_metrics_section(story)
         self._create_suspicious_commands_section(story)
+        self._create_outlier_analysis_section(story)
         self._create_application_metrics_section(story)
         self._create_text_analysis_section(story)
         
         doc.build(story)
-        print(f"Relatório PDF gerado com sucesso: {self.output_file}")
         return self.output_file
