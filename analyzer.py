@@ -2,7 +2,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import zscore
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import sys
 from collections import Counter
@@ -103,8 +103,8 @@ class KeyloggerAnalyzer:
             next_event = sequence[i + 1]
 
             try:
-                t1 = datetime.strptime(current['timestamp'], "%Y-%m-%d %H:%M:%S")
-                t2 = datetime.strptime(next_event['timestamp'], "%Y-%m-%d %H:%M:%S")
+                t1 = datetime.strptime(current['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
+                t2 = datetime.strptime(next_event['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
             except Exception:
                 continue  # Pula se o timestamp for inválido
 
@@ -129,8 +129,8 @@ class KeyloggerAnalyzer:
         app_metrics = {}
         for app, events in app_events.items():
             if len(events) >= 2:
-                start_time = datetime.strptime(events[0]['timestamp'], "%Y-%m-%d %H:%M:%S")
-                end_time = datetime.strptime(events[-1]['timestamp'], "%Y-%m-%d %H:%M:%S")
+                start_time = datetime.strptime(events[0]['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
+                end_time = datetime.strptime(events[-1]['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
                 duration = (end_time - start_time).total_seconds()
                 
                 typing_rate = len(events) / duration if duration > 0 else 0
@@ -181,7 +181,7 @@ class KeyloggerAnalyzer:
             special_keys = {
                 'space': ' ',
                 'enter': '  ↵  ',
-                'tab': '  →  ',
+                'tab': '  →|  ',
                 'backspace': '  |←  ',
                 'delete': '  del  ',
                 'up': '  ↑  ',
@@ -221,7 +221,7 @@ class KeyloggerAnalyzer:
         segment_events = []
         
         for i, event in enumerate(self.data):
-            current_time = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S")
+            current_time = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
             
             if event.get('key') in ['Key.ctrl', 'Key.ctrl_l', 'Key.ctrl_r', 'Key.cmd', 'Key.cmd_l', 'Key.cmd_r']:
                 last_was_ctrl = True
@@ -364,28 +364,111 @@ class KeyloggerAnalyzer:
         return report
     
     def plot_typing_patterns(self):
-        """Gera gráficos de padrões de digitação e retorna como bytes"""
-        hold_times = [event['hold_time'] for event in self.data if 'hold_time' in event and event['hold_time'] is not None]
-        flight_times = [event['flight_time'] for event in self.data if 'flight_time' in event and event['flight_time'] is not None]
+        """Gera gráfico de frequência de digitação ao longo do tempo"""
+        # Get timestamps and create time windows
+        timestamps = []
+        for event in self.data:
+            if 'timestamp' in event:
+                try:
+                    # Try to parse the timestamp
+                    if isinstance(event['timestamp'], str):
+                        # Try different timestamp formats
+                        try:
+                            ts = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
+                        except ValueError:
+                            try:
+                                ts = datetime.strptime(event['timestamp'], "%Y-%m-%d %H:%M:%S")
+                            except ValueError:
+                                # If it's a Unix timestamp
+                                ts = datetime.fromtimestamp(float(event['timestamp']))
+                    else:
+                        # If it's already a number (Unix timestamp)
+                        ts = datetime.fromtimestamp(float(event['timestamp']))
+                    timestamps.append(ts.timestamp())
+                except (ValueError, TypeError):
+                    continue
+
+        if not timestamps:
+            return None
+            
+        # Convert timestamps to datetime objects
+        start_time = datetime.fromtimestamp(min(timestamps))
+        end_time = datetime.fromtimestamp(max(timestamps))
         
-        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
+        # Calculate total duration in seconds
+        total_duration = (end_time - start_time).total_seconds()
         
-        if hold_times:
-            ax1.hist(hold_times, bins=30, alpha=0.7, color='blue')
-            ax1.set_title('Distribuição de Tempos de Pressionamento (Hold Time)')
-            ax1.set_xlabel('Tempo (segundos)')
-            ax1.set_ylabel('Frequência')
+        # Determine window size based on total duration
+        if total_duration <= 300:  # 5 minutes or less
+            window_size = 3  # 5 seconds
+        elif total_duration <= 1800:  # 30 minutes or less
+            window_size = 5  # 15 seconds
+        elif total_duration <= 3600:  # 1 hour or less
+            window_size = 10  # 30 seconds
+        else:
+            window_size = 60  # 1 minute
         
-        if flight_times:
-            ax2.hist(flight_times, bins=30, alpha=0.7, color='green')
-            ax2.set_title('Distribuição de Tempos Entre Teclas (Flight Time)')
-            ax2.set_xlabel('Tempo (segundos)')
-            ax2.set_ylabel('Frequência')
+        # Create time windows
+        time_windows = []
+        current_time = start_time
+        while current_time <= end_time:
+            time_windows.append(current_time)
+            current_time += timedelta(seconds=window_size)
+        
+        # Count events in each window
+        event_counts = []
+        for i in range(len(time_windows) - 1):
+            window_start = time_windows[i].timestamp()
+            window_end = time_windows[i + 1].timestamp()
+            count = sum(1 for ts in timestamps if window_start <= ts < window_end)
+            event_counts.append(count)
+        
+        # Create the plot with improved styling
+        plt.figure(figsize=(15, 8))
+        
+        # Plot the line with gradient color based on frequency
+        points = plt.plot(time_windows[:-1], event_counts, marker='o', linestyle='-', markersize=4, alpha=0.7)
+        
+        # Add color gradient based on frequency
+        cmap = plt.cm.viridis
+        norm = plt.Normalize(min(event_counts), max(event_counts))
+        for i in range(len(event_counts)-1):
+            plt.plot([time_windows[i], time_windows[i+1]], 
+                    [event_counts[i], event_counts[i+1]], 
+                    color=cmap(norm(event_counts[i])), 
+                    linewidth=2)
+        
+        # Add scatter points with color gradient
+        scatter = plt.scatter(time_windows[:-1], event_counts, 
+                            c=event_counts, 
+                            cmap=cmap, 
+                            norm=norm,
+                            s=50, 
+                            alpha=0.6)
+        
+        # Add colorbar
+        plt.colorbar(scatter, label='Frequência de Digitação')
+        
+        # Customize the plot
+        plt.title('Frequência de Digitação ao Longo do Tempo', pad=20, fontsize=14)
+        plt.xlabel('Tempo', labelpad=10, fontsize=12)
+        plt.ylabel('Número de Teclas Digitadas', labelpad=10, fontsize=12)
+        
+        # Format x-axis
+        plt.gcf().autofmt_xdate()  # Rotate and align the tick labels
+        plt.grid(True, linestyle='--', alpha=0.3)
+        
+        # Add some padding to the y-axis
+        plt.margins(y=0.1)
+        
+        # Add window size information
+        window_text = f"Janela de tempo: {window_size} segundos"
+        plt.figtext(0.02, 0.02, window_text, fontsize=10, style='italic')
         
         plt.tight_layout()
         
         buf = io.BytesIO()
-        plt.savefig(buf, format='png')
+        plt.savefig(buf, format='png', dpi=300, bbox_inches='tight')
         plt.close()
         buf.seek(0)
         return buf

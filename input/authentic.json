@@ -1,0 +1,2787 @@
+[
+    {
+        "key": "s",
+        "timestamp": "2025-05-06 10:46:46.274",
+        "application": "Cursor",
+        "flight_time": null,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:46:46.333",
+        "application": "Cursor",
+        "flight_time": 0.059,
+        "command_type": null,
+        "hold_time": 0.099
+    },
+    {
+        "key": "m",
+        "timestamp": "2025-05-06 10:46:46.408",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.093
+    },
+    {
+        "key": ".",
+        "timestamp": "2025-05-06 10:46:46.763",
+        "application": "Cursor",
+        "flight_time": 0.355,
+        "command_type": null,
+        "hold_time": 0.088
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:46:46.988",
+        "application": "Cursor",
+        "flight_time": 0.225,
+        "command_type": null,
+        "hold_time": 0.074
+    },
+    {
+        "key": "y",
+        "timestamp": "2025-05-06 10:46:47.153",
+        "application": "Cursor",
+        "flight_time": 0.166,
+        "command_type": null,
+        "hold_time": 0.056
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:46:47.297",
+        "application": "Cursor",
+        "flight_time": 0.144,
+        "command_type": null,
+        "hold_time": 0.052
+    },
+    {
+        "key": "x",
+        "timestamp": "2025-05-06 10:47:02.445",
+        "application": "Cursor",
+        "flight_time": 15.147,
+        "command_type": null
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:02.512",
+        "application": "Cursor",
+        "flight_time": 0.067,
+        "command_type": null,
+        "hold_time": 0.114
+    },
+    {
+        "key": "=",
+        "timestamp": "2025-05-06 10:47:02.652",
+        "application": "Cursor",
+        "flight_time": 0.141,
+        "command_type": null,
+        "hold_time": 0.163
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:02.726",
+        "application": "Cursor",
+        "flight_time": 0.073,
+        "command_type": null,
+        "hold_time": 0.118
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:03.703",
+        "application": "Cursor",
+        "flight_time": 0.977,
+        "command_type": null
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:03.781",
+        "application": "Cursor",
+        "flight_time": 0.078,
+        "command_type": null,
+        "hold_time": 0.132
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:03.871",
+        "application": "Cursor",
+        "flight_time": 0.09,
+        "command_type": null,
+        "hold_time": 0.056
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:04.089",
+        "application": "Cursor",
+        "flight_time": 0.219,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:47:05.718",
+        "application": "Cursor",
+        "flight_time": 1.629,
+        "command_type": null,
+        "hold_time": 1.79
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:06.014",
+        "application": "Cursor",
+        "flight_time": 0.296,
+        "command_type": null
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:06.081",
+        "application": "Cursor",
+        "flight_time": 0.067,
+        "command_type": null,
+        "hold_time": 0.06
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:47:06.279",
+        "application": "Cursor",
+        "flight_time": 0.197,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:47:06.396",
+        "application": "Cursor",
+        "flight_time": 0.117,
+        "command_type": null,
+        "hold_time": 0.107
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:06.537",
+        "application": "Cursor",
+        "flight_time": 0.141,
+        "command_type": null,
+        "hold_time": 0.085
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:07.492",
+        "application": "Cursor",
+        "flight_time": 0.955,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:47:07.581",
+        "application": "Cursor",
+        "flight_time": 0.088,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:47:07.637",
+        "application": "Cursor",
+        "flight_time": 0.056,
+        "command_type": null,
+        "hold_time": 0.428
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:08.677",
+        "application": "Cursor",
+        "flight_time": 1.04,
+        "command_type": "cursor_movement",
+        "hold_time": 0.088
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:09.968",
+        "application": "Cursor",
+        "flight_time": 1.291,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:47:10.310",
+        "application": "Cursor",
+        "flight_time": 0.342,
+        "command_type": null,
+        "hold_time": 0.668
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:10.686",
+        "application": "Cursor",
+        "flight_time": 0.376,
+        "command_type": null,
+        "hold_time": 0.092
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:47:12.424",
+        "application": "Cursor",
+        "flight_time": 1.738,
+        "command_type": null,
+        "hold_time": 0.005
+    },
+    {
+        "key": "D",
+        "timestamp": "2025-05-06 10:47:12.534",
+        "application": "Cursor",
+        "flight_time": 0.11,
+        "command_type": null
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:47:12.661",
+        "application": "Cursor",
+        "flight_time": 0.127,
+        "command_type": null,
+        "hold_time": 0.003
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:12.732",
+        "application": "Cursor",
+        "flight_time": 0.071,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "g",
+        "timestamp": "2025-05-06 10:47:12.848",
+        "application": "Cursor",
+        "flight_time": 0.116,
+        "command_type": null,
+        "hold_time": 0.088
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:12.948",
+        "application": "Cursor",
+        "flight_time": 0.1,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:13.036",
+        "application": "Cursor",
+        "flight_time": 0.088,
+        "command_type": null
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:13.108",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null,
+        "hold_time": 0.14
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:13.284",
+        "application": "Cursor",
+        "flight_time": 0.176,
+        "command_type": null,
+        "hold_time": 0.055
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:14.008",
+        "application": "Cursor",
+        "flight_time": 0.724,
+        "command_type": null,
+        "hold_time": 0.088
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:14.100",
+        "application": "Cursor",
+        "flight_time": 0.092,
+        "command_type": null,
+        "hold_time": 0.082
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:47:14.265",
+        "application": "Cursor",
+        "flight_time": 0.165,
+        "command_type": null,
+        "hold_time": 0.06
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:47:14.329",
+        "application": "Cursor",
+        "flight_time": 0.064,
+        "command_type": null,
+        "hold_time": 0.085
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:14.462",
+        "application": "Cursor",
+        "flight_time": 0.132,
+        "command_type": null,
+        "hold_time": 0.044
+    },
+    {
+        "key": "m",
+        "timestamp": "2025-05-06 10:47:14.587",
+        "application": "Cursor",
+        "flight_time": 0.125,
+        "command_type": null
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:14.662",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:14.748",
+        "application": "Cursor",
+        "flight_time": 0.086,
+        "command_type": null,
+        "hold_time": 0.068
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:47:14.833",
+        "application": "Cursor",
+        "flight_time": 0.085,
+        "command_type": null
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:14.909",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:14.969",
+        "application": "Cursor",
+        "flight_time": 0.06,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:15.155",
+        "application": "Cursor",
+        "flight_time": 0.186,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:47:15.237",
+        "application": "Cursor",
+        "flight_time": 0.082,
+        "command_type": null,
+        "hold_time": 0.122
+    },
+    {
+        "key": "m",
+        "timestamp": "2025-05-06 10:47:15.353",
+        "application": "Cursor",
+        "flight_time": 0.116,
+        "command_type": null,
+        "hold_time": 0.104
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:15.474",
+        "application": "Cursor",
+        "flight_time": 0.121,
+        "command_type": null,
+        "hold_time": 0.092
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:47:15.651",
+        "application": "Cursor",
+        "flight_time": 0.177,
+        "command_type": null,
+        "hold_time": 0.065
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:15.768",
+        "application": "Cursor",
+        "flight_time": 0.117,
+        "command_type": null,
+        "hold_time": 0.064
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:16.240",
+        "application": "Cursor",
+        "flight_time": 0.472,
+        "command_type": null
+    },
+    {
+        "key": ":",
+        "timestamp": "2025-05-06 10:47:16.765",
+        "application": "Cursor",
+        "flight_time": 0.525,
+        "command_type": null,
+        "hold_time": 1.001
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:47:17.582",
+        "application": "Cursor",
+        "flight_time": 0.817,
+        "command_type": "cursor_movement",
+        "hold_time": 0.1
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:47:17.783",
+        "application": "Cursor",
+        "flight_time": 0.201,
+        "command_type": "cursor_movement",
+        "hold_time": 0.113
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:47:18.009",
+        "application": "Cursor",
+        "flight_time": 0.226,
+        "command_type": "cursor_movement",
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:18.784",
+        "application": "Cursor",
+        "flight_time": 0.775,
+        "command_type": null
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:47:19.376",
+        "application": "Cursor",
+        "flight_time": 0.592,
+        "command_type": null,
+        "hold_time": 1.472
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:47:27.205",
+        "application": "Cursor",
+        "flight_time": 7.829,
+        "command_type": null,
+        "hold_time": 0.068
+    },
+    {
+        "key": "y",
+        "timestamp": "2025-05-06 10:47:28.624",
+        "application": "Cursor",
+        "flight_time": 1.419,
+        "command_type": null,
+        "hold_time": 0.052
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:28.867",
+        "application": "Cursor",
+        "flight_time": 0.243,
+        "command_type": null,
+        "hold_time": 0.132
+    },
+    {
+        "key": "=",
+        "timestamp": "2025-05-06 10:47:29.073",
+        "application": "Cursor",
+        "flight_time": 0.206,
+        "command_type": null,
+        "hold_time": 0.09
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:29.173",
+        "application": "Cursor",
+        "flight_time": 0.1,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:30.818",
+        "application": "Cursor",
+        "flight_time": 1.645,
+        "command_type": null
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:30.878",
+        "application": "Cursor",
+        "flight_time": 0.06,
+        "command_type": null,
+        "hold_time": 0.092
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:31.005",
+        "application": "Cursor",
+        "flight_time": 0.127,
+        "command_type": null,
+        "hold_time": 0.096
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:31.300",
+        "application": "Cursor",
+        "flight_time": 0.295,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:47:31.356",
+        "application": "Cursor",
+        "flight_time": 0.056,
+        "command_type": null,
+        "hold_time": 0.236
+    },
+    {
+        "key": "d",
+        "timestamp": "2025-05-06 10:47:31.692",
+        "application": "Cursor",
+        "flight_time": 0.336,
+        "command_type": null
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:31.804",
+        "application": "Cursor",
+        "flight_time": 0.112,
+        "command_type": null,
+        "hold_time": 0.081
+    },
+    {
+        "key": "g",
+        "timestamp": "2025-05-06 10:47:31.937",
+        "application": "Cursor",
+        "flight_time": 0.133,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:32.017",
+        "application": "Cursor",
+        "flight_time": 0.08,
+        "command_type": null,
+        "hold_time": 0.064
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:32.106",
+        "application": "Cursor",
+        "flight_time": 0.089,
+        "command_type": null
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:32.178",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null,
+        "hold_time": 0.104
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:32.269",
+        "application": "Cursor",
+        "flight_time": 0.091,
+        "command_type": null,
+        "hold_time": 0.132
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:32.366",
+        "application": "Cursor",
+        "flight_time": 0.097,
+        "command_type": null,
+        "hold_time": 0.105
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:32.426",
+        "application": "Cursor",
+        "flight_time": 0.06,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:32.750",
+        "application": "Cursor",
+        "flight_time": 0.324,
+        "command_type": "backspace",
+        "hold_time": 0.071
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:32.895",
+        "application": "Cursor",
+        "flight_time": 0.144,
+        "command_type": "backspace",
+        "hold_time": 0.076
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:33.052",
+        "application": "Cursor",
+        "flight_time": 0.157,
+        "command_type": "backspace",
+        "hold_time": 0.08
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:33.356",
+        "application": "Cursor",
+        "flight_time": 0.304,
+        "command_type": "backspace",
+        "hold_time": 0.108
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:33.544",
+        "application": "Cursor",
+        "flight_time": 0.188,
+        "command_type": "backspace",
+        "hold_time": 0.096
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:33.690",
+        "application": "Cursor",
+        "flight_time": 0.146,
+        "command_type": "backspace",
+        "hold_time": 0.068
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:33.831",
+        "application": "Cursor",
+        "flight_time": 0.141,
+        "command_type": "backspace",
+        "hold_time": 0.069
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:33.967",
+        "application": "Cursor",
+        "flight_time": 0.136,
+        "command_type": "backspace",
+        "hold_time": 0.099
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:34.299",
+        "application": "Cursor",
+        "flight_time": 0.332,
+        "command_type": "backspace",
+        "hold_time": 0.073
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:34.637",
+        "application": "Cursor",
+        "flight_time": 0.339,
+        "command_type": null
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:34.682",
+        "application": "Cursor",
+        "flight_time": 0.045,
+        "command_type": null,
+        "hold_time": 0.088
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:47:34.887",
+        "application": "Cursor",
+        "flight_time": 0.205,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:47:34.972",
+        "application": "Cursor",
+        "flight_time": 0.085,
+        "command_type": null,
+        "hold_time": 0.136
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:35.106",
+        "application": "Cursor",
+        "flight_time": 0.134,
+        "command_type": null,
+        "hold_time": 0.037
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:35.263",
+        "application": "Cursor",
+        "flight_time": 0.158,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:47:35.366",
+        "application": "Cursor",
+        "flight_time": 0.102,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:47:35.433",
+        "application": "Cursor",
+        "flight_time": 0.068,
+        "command_type": null,
+        "hold_time": 0.294
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:36.320",
+        "application": "Cursor",
+        "flight_time": 0.886,
+        "command_type": "cursor_movement",
+        "hold_time": 0.068
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:36.944",
+        "application": "Cursor",
+        "flight_time": 0.624,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:47:37.113",
+        "application": "Cursor",
+        "flight_time": 0.169,
+        "command_type": null,
+        "hold_time": 0.281
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:37.241",
+        "application": "Cursor",
+        "flight_time": 0.128,
+        "command_type": null,
+        "hold_time": 0.115
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:47:37.693",
+        "application": "Cursor",
+        "flight_time": 0.452,
+        "command_type": null,
+        "hold_time": 0.006
+    },
+    {
+        "key": "D",
+        "timestamp": "2025-05-06 10:47:38.005",
+        "application": "Cursor",
+        "flight_time": 0.312,
+        "command_type": null
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:47:38.097",
+        "application": "Cursor",
+        "flight_time": 0.092,
+        "command_type": null,
+        "hold_time": 0.009
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:38.409",
+        "application": "Cursor",
+        "flight_time": 0.312,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "g",
+        "timestamp": "2025-05-06 10:47:38.517",
+        "application": "Cursor",
+        "flight_time": 0.108,
+        "command_type": null,
+        "hold_time": 0.09
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:38.634",
+        "application": "Cursor",
+        "flight_time": 0.116,
+        "command_type": null
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:38.711",
+        "application": "Cursor",
+        "flight_time": 0.077,
+        "command_type": null,
+        "hold_time": 0.082
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:38.787",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.101
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:38.879",
+        "application": "Cursor",
+        "flight_time": 0.092,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:39.011",
+        "application": "Cursor",
+        "flight_time": 0.132,
+        "command_type": null
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:39.068",
+        "application": "Cursor",
+        "flight_time": 0.057,
+        "command_type": null,
+        "hold_time": 0.095
+    },
+    {
+        "key": "s",
+        "timestamp": "2025-05-06 10:47:39.237",
+        "application": "Cursor",
+        "flight_time": 0.169,
+        "command_type": null,
+        "hold_time": 0.094
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:39.444",
+        "application": "Cursor",
+        "flight_time": 0.207,
+        "command_type": null,
+        "hold_time": 0.059
+    },
+    {
+        "key": "g",
+        "timestamp": "2025-05-06 10:47:40.041",
+        "application": "Cursor",
+        "flight_time": 0.597,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:47:40.102",
+        "application": "Cursor",
+        "flight_time": 0.06,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:40.166",
+        "application": "Cursor",
+        "flight_time": 0.064,
+        "command_type": null,
+        "hold_time": 0.123
+    },
+    {
+        "key": "d",
+        "timestamp": "2025-05-06 10:47:40.245",
+        "application": "Cursor",
+        "flight_time": 0.079,
+        "command_type": null,
+        "hold_time": 0.093
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:40.354",
+        "application": "Cursor",
+        "flight_time": 0.109,
+        "command_type": null
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:40.411",
+        "application": "Cursor",
+        "flight_time": 0.057,
+        "command_type": null,
+        "hold_time": 0.087
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:40.510",
+        "application": "Cursor",
+        "flight_time": 0.099,
+        "command_type": null,
+        "hold_time": 0.081
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:47:41.318",
+        "application": "Cursor",
+        "flight_time": 0.808,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:47:41.599",
+        "application": "Cursor",
+        "flight_time": 0.282,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "m",
+        "timestamp": "2025-05-06 10:47:41.760",
+        "application": "Cursor",
+        "flight_time": 0.161,
+        "command_type": null
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:47:41.827",
+        "application": "Cursor",
+        "flight_time": 0.067,
+        "command_type": null,
+        "hold_time": 0.081
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:47:42.001",
+        "application": "Cursor",
+        "flight_time": 0.174,
+        "command_type": null,
+        "hold_time": 0.06
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:47:42.065",
+        "application": "Cursor",
+        "flight_time": 0.064,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:42.618",
+        "application": "Cursor",
+        "flight_time": 0.553,
+        "command_type": null
+    },
+    {
+        "key": ":",
+        "timestamp": "2025-05-06 10:47:43.052",
+        "application": "Cursor",
+        "flight_time": 0.434,
+        "command_type": null,
+        "hold_time": 0.608
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:43.273",
+        "application": "Cursor",
+        "flight_time": 0.221,
+        "command_type": null,
+        "hold_time": 0.109
+    },
+    {
+        "key": "Key.up",
+        "timestamp": "2025-05-06 10:47:43.941",
+        "application": "Cursor",
+        "flight_time": 0.668,
+        "command_type": "cursor_movement",
+        "hold_time": 0.088
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:44.155",
+        "application": "Cursor",
+        "flight_time": 0.214,
+        "command_type": "cursor_movement",
+        "hold_time": 0.041
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:44.276",
+        "application": "Cursor",
+        "flight_time": 0.121,
+        "command_type": "cursor_movement",
+        "hold_time": 0.079
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:44.422",
+        "application": "Cursor",
+        "flight_time": 0.145,
+        "command_type": "cursor_movement",
+        "hold_time": 0.071
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:44.565",
+        "application": "Cursor",
+        "flight_time": 0.144,
+        "command_type": "cursor_movement",
+        "hold_time": 0.064
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:44.749",
+        "application": "Cursor",
+        "flight_time": 0.184,
+        "command_type": "cursor_movement",
+        "hold_time": 0.092
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:45.184",
+        "application": "Cursor",
+        "flight_time": 0.435,
+        "command_type": "backspace",
+        "hold_time": 0.076
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:47:45.417",
+        "application": "Cursor",
+        "flight_time": 0.233,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:47:45.756",
+        "application": "Cursor",
+        "flight_time": 0.339,
+        "command_type": null,
+        "hold_time": 0.064
+    },
+    {
+        "key": "Key.down",
+        "timestamp": "2025-05-06 10:47:46.381",
+        "application": "Cursor",
+        "flight_time": 0.624,
+        "command_type": "cursor_movement",
+        "hold_time": 0.064
+    },
+    {
+        "key": "Key.down",
+        "timestamp": "2025-05-06 10:47:46.570",
+        "application": "Cursor",
+        "flight_time": 0.189,
+        "command_type": "cursor_movement",
+        "hold_time": 0.052
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:47.393",
+        "application": "Cursor",
+        "flight_time": 0.823,
+        "command_type": null
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:47:47.572",
+        "application": "Cursor",
+        "flight_time": 0.179,
+        "command_type": null,
+        "hold_time": 1.227
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:47:51.796",
+        "application": "Cursor",
+        "flight_time": 4.224,
+        "command_type": null,
+        "hold_time": 0.06
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:47:51.934",
+        "application": "Cursor",
+        "flight_time": 0.138,
+        "command_type": null,
+        "hold_time": 0.068
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:47:52.751",
+        "application": "Cursor",
+        "flight_time": 0.818,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:53.152",
+        "application": "Cursor",
+        "flight_time": 0.4,
+        "command_type": null,
+        "hold_time": 0.079
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:53.239",
+        "application": "Cursor",
+        "flight_time": 0.087,
+        "command_type": null
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:53.283",
+        "application": "Cursor",
+        "flight_time": 0.044,
+        "command_type": null,
+        "hold_time": 0.108
+    },
+    {
+        "key": "f",
+        "timestamp": "2025-05-06 10:47:53.407",
+        "application": "Cursor",
+        "flight_time": 0.124,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:53.831",
+        "application": "Cursor",
+        "flight_time": 0.425,
+        "command_type": "backspace",
+        "hold_time": 0.08
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:54.001",
+        "application": "Cursor",
+        "flight_time": 0.169,
+        "command_type": "backspace",
+        "hold_time": 0.092
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:54.160",
+        "application": "Cursor",
+        "flight_time": 0.16,
+        "command_type": "backspace",
+        "hold_time": 0.08
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:47:54.319",
+        "application": "Cursor",
+        "flight_time": 0.159,
+        "command_type": "backspace",
+        "hold_time": 0.073
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:47:54.826",
+        "application": "Cursor",
+        "flight_time": 0.506,
+        "command_type": null
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:47:54.877",
+        "application": "Cursor",
+        "flight_time": 0.052,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:47:54.954",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.096
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:47:55.063",
+        "application": "Cursor",
+        "flight_time": 0.109,
+        "command_type": null,
+        "hold_time": 0.066
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:55.354",
+        "application": "Cursor",
+        "flight_time": 0.29,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:47:55.502",
+        "application": "Cursor",
+        "flight_time": 0.148,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:47:55.581",
+        "application": "Cursor",
+        "flight_time": 0.079,
+        "command_type": null,
+        "hold_time": 0.336
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:47:56.207",
+        "application": "Cursor",
+        "flight_time": 0.626,
+        "command_type": "cursor_movement",
+        "hold_time": 0.094
+    },
+    {
+        "key": "f",
+        "timestamp": "2025-05-06 10:47:57.589",
+        "application": "Cursor",
+        "flight_time": 1.381,
+        "command_type": null,
+        "hold_time": 0.064
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:47:57.833",
+        "application": "Cursor",
+        "flight_time": 0.244,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:47:57.963",
+        "application": "Cursor",
+        "flight_time": 0.13,
+        "command_type": null,
+        "hold_time": 0.328
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:47:58.210",
+        "application": "Cursor",
+        "flight_time": 0.247,
+        "command_type": null,
+        "hold_time": 0.113
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:48:00.164",
+        "application": "Cursor",
+        "flight_time": 1.954,
+        "command_type": null,
+        "hold_time": 0.006
+    },
+    {
+        "key": "R",
+        "timestamp": "2025-05-06 10:48:00.309",
+        "application": "Cursor",
+        "flight_time": 0.145,
+        "command_type": null
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:48:00.440",
+        "application": "Cursor",
+        "flight_time": 0.131,
+        "command_type": null,
+        "hold_time": 0.008
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:48:00.547",
+        "application": "Cursor",
+        "flight_time": 0.107,
+        "command_type": null,
+        "hold_time": 0.059
+    },
+    {
+        "key": "s",
+        "timestamp": "2025-05-06 10:48:00.681",
+        "application": "Cursor",
+        "flight_time": 0.134,
+        "command_type": null,
+        "hold_time": 0.117
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:48:00.813",
+        "application": "Cursor",
+        "flight_time": 0.132,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "l",
+        "timestamp": "2025-05-06 10:48:00.982",
+        "application": "Cursor",
+        "flight_time": 0.17,
+        "command_type": null
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:48:01.106",
+        "application": "Cursor",
+        "flight_time": 0.124,
+        "command_type": null,
+        "hold_time": 0.02
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:48:01.201",
+        "application": "Cursor",
+        "flight_time": 0.095,
+        "command_type": null,
+        "hold_time": 0.096
+    },
+    {
+        "key": "d",
+        "timestamp": "2025-05-06 10:48:01.330",
+        "application": "Cursor",
+        "flight_time": 0.129,
+        "command_type": null
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:48:01.406",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:01.793",
+        "application": "Cursor",
+        "flight_time": 0.386,
+        "command_type": null
+    },
+    {
+        "key": ":",
+        "timestamp": "2025-05-06 10:48:02.130",
+        "application": "Cursor",
+        "flight_time": 0.337,
+        "command_type": null,
+        "hold_time": 0.063
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:48:02.245",
+        "application": "Cursor",
+        "flight_time": 0.116,
+        "command_type": null,
+        "hold_time": 0.099
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:03.108",
+        "application": "Cursor",
+        "flight_time": 0.862,
+        "command_type": null
+    },
+    {
+        "key": "{",
+        "timestamp": "2025-05-06 10:48:03.382",
+        "application": "Cursor",
+        "flight_time": 0.275,
+        "command_type": null,
+        "hold_time": 0.44
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:48:03.670",
+        "application": "Cursor",
+        "flight_time": 0.287,
+        "command_type": null,
+        "hold_time": 0.081
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:48:04.494",
+        "application": "Cursor",
+        "flight_time": 0.824,
+        "command_type": "backspace",
+        "hold_time": 0.091
+    },
+    {
+        "key": "x",
+        "timestamp": "2025-05-06 10:48:04.619",
+        "application": "Cursor",
+        "flight_time": 0.126,
+        "command_type": null,
+        "hold_time": 0.056
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:04.999",
+        "application": "Cursor",
+        "flight_time": 0.379,
+        "command_type": null
+    },
+    {
+        "key": "+",
+        "timestamp": "2025-05-06 10:48:05.178",
+        "application": "Cursor",
+        "flight_time": 0.179,
+        "command_type": null,
+        "hold_time": 0.329
+    },
+    {
+        "key": "y",
+        "timestamp": "2025-05-06 10:48:06.206",
+        "application": "Cursor",
+        "flight_time": 1.028,
+        "command_type": null,
+        "hold_time": 0.069
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:48:06.568",
+        "application": "Cursor",
+        "flight_time": 0.363,
+        "command_type": "cursor_movement",
+        "hold_time": 0.121
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:07.420",
+        "application": "Cursor",
+        "flight_time": 0.852,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:48:07.634",
+        "application": "Cursor",
+        "flight_time": 0.213,
+        "command_type": null,
+        "hold_time": 0.393
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:48:07.958",
+        "application": "Cursor",
+        "flight_time": 0.324,
+        "command_type": "cursor_movement",
+        "hold_time": 0.084
+    },
+    {
+        "key": "5",
+        "timestamp": "2025-05-06 10:48:15.834",
+        "application": "Cursor",
+        "flight_time": 7.876,
+        "command_type": null,
+        "hold_time": 0.108
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:48:16.069",
+        "application": "Cursor",
+        "flight_time": 0.236,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "3",
+        "timestamp": "2025-05-06 10:48:17.747",
+        "application": "Cursor",
+        "flight_time": 1.678,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:48:17.994",
+        "application": "Cursor",
+        "flight_time": 0.247,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "c",
+        "timestamp": "2025-05-06 10:48:22.824",
+        "application": "Cursor",
+        "flight_time": 4.83,
+        "command_type": null
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:48:22.923",
+        "application": "Cursor",
+        "flight_time": 0.099,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:48:23.075",
+        "application": "Cursor",
+        "flight_time": 0.152,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "c",
+        "timestamp": "2025-05-06 10:48:23.243",
+        "application": "Cursor",
+        "flight_time": 0.168,
+        "command_type": null
+    },
+    {
+        "key": "l",
+        "timestamp": "2025-05-06 10:48:23.351",
+        "application": "Cursor",
+        "flight_time": 0.107,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:48:23.475",
+        "application": "Cursor",
+        "flight_time": 0.124,
+        "command_type": null,
+        "hold_time": 0.06
+    },
+    {
+        "key": ".",
+        "timestamp": "2025-05-06 10:48:23.599",
+        "application": "Cursor",
+        "flight_time": 0.124,
+        "command_type": null,
+        "hold_time": 0.068
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:48:23.806",
+        "application": "Cursor",
+        "flight_time": 0.207,
+        "command_type": null,
+        "hold_time": 0.064
+    },
+    {
+        "key": "y",
+        "timestamp": "2025-05-06 10:48:23.912",
+        "application": "Cursor",
+        "flight_time": 0.106,
+        "command_type": null,
+        "hold_time": 0.095
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:48:24.055",
+        "application": "Cursor",
+        "flight_time": 0.143,
+        "command_type": null,
+        "hold_time": 0.061
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:48:44.756",
+        "application": "Cursor",
+        "flight_time": 20.702,
+        "command_type": null,
+        "hold_time": 0.074
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:48:44.967",
+        "application": "Cursor",
+        "flight_time": 0.211,
+        "command_type": null,
+        "hold_time": 0.119
+    },
+    {
+        "key": "=",
+        "timestamp": "2025-05-06 10:48:45.110",
+        "application": "Cursor",
+        "flight_time": 0.142,
+        "command_type": null,
+        "hold_time": 0.108
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:48:45.229",
+        "application": "Cursor",
+        "flight_time": 0.12,
+        "command_type": null,
+        "hold_time": 0.093
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:48:46.325",
+        "application": "Cursor",
+        "flight_time": 1.096,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:48:46.824",
+        "application": "Cursor",
+        "flight_time": 0.499,
+        "command_type": "backspace",
+        "hold_time": 0.072
+    },
+    {
+        "key": "f",
+        "timestamp": "2025-05-06 10:48:47.861",
+        "application": "Cursor",
+        "flight_time": 1.037,
+        "command_type": null
+    },
+    {
+        "key": "l",
+        "timestamp": "2025-05-06 10:48:47.946",
+        "application": "Cursor",
+        "flight_time": 0.085,
+        "command_type": null,
+        "hold_time": 0.095
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:48:48.058",
+        "application": "Cursor",
+        "flight_time": 0.112,
+        "command_type": null,
+        "hold_time": 0.067
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:48:48.239",
+        "application": "Cursor",
+        "flight_time": 0.181,
+        "command_type": null,
+        "hold_time": 0.056
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:48:48.487",
+        "application": "Cursor",
+        "flight_time": 0.247,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:48.766",
+        "application": "Cursor",
+        "flight_time": 0.28,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:48:48.847",
+        "application": "Cursor",
+        "flight_time": 0.08,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:48:48.923",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.322
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:48:49.646",
+        "application": "Cursor",
+        "flight_time": 0.723,
+        "command_type": "cursor_movement",
+        "hold_time": 0.065
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:48:49.987",
+        "application": "Cursor",
+        "flight_time": 0.341,
+        "command_type": null
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:48:50.069",
+        "application": "Cursor",
+        "flight_time": 0.082,
+        "command_type": null,
+        "hold_time": 0.068
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:48:50.260",
+        "application": "Cursor",
+        "flight_time": 0.191,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:48:50.373",
+        "application": "Cursor",
+        "flight_time": 0.113,
+        "command_type": null,
+        "hold_time": 0.089
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:48:50.518",
+        "application": "Cursor",
+        "flight_time": 0.145,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:52.971",
+        "application": "Cursor",
+        "flight_time": 2.453,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:48:53.390",
+        "application": "Cursor",
+        "flight_time": 0.419,
+        "command_type": null,
+        "hold_time": 0.757
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:48:54.126",
+        "application": "Cursor",
+        "flight_time": 0.736,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:48:54.448",
+        "application": "Cursor",
+        "flight_time": 0.323,
+        "command_type": null,
+        "hold_time": 0.453
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:48:54.615",
+        "application": "Cursor",
+        "flight_time": 0.167,
+        "command_type": null,
+        "hold_time": 0.119
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:49:00.158",
+        "application": "Cursor",
+        "flight_time": 5.543,
+        "command_type": null,
+        "hold_time": 0.007
+    },
+    {
+        "key": "D",
+        "timestamp": "2025-05-06 10:49:00.292",
+        "application": "Cursor",
+        "flight_time": 0.134,
+        "command_type": null
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:49:00.367",
+        "application": "Cursor",
+        "flight_time": 0.074,
+        "command_type": null,
+        "hold_time": 0.006
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:49:00.542",
+        "application": "Cursor",
+        "flight_time": 0.176,
+        "command_type": null,
+        "hold_time": 0.075
+    },
+    {
+        "key": "g",
+        "timestamp": "2025-05-06 10:49:00.986",
+        "application": "Cursor",
+        "flight_time": 0.443,
+        "command_type": null,
+        "hold_time": 0.129
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:49:01.171",
+        "application": "Cursor",
+        "flight_time": 0.186,
+        "command_type": null,
+        "hold_time": 0.014
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:49:01.236",
+        "application": "Cursor",
+        "flight_time": 0.064,
+        "command_type": null
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:49:01.312",
+        "application": "Cursor",
+        "flight_time": 0.076,
+        "command_type": null,
+        "hold_time": 0.132
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:01.445",
+        "application": "Cursor",
+        "flight_time": 0.133,
+        "command_type": null,
+        "hold_time": 0.1
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:49:01.598",
+        "application": "Cursor",
+        "flight_time": 0.153,
+        "command_type": null
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:01.677",
+        "application": "Cursor",
+        "flight_time": 0.079,
+        "command_type": null,
+        "hold_time": 0.104
+    },
+    {
+        "key": "v",
+        "timestamp": "2025-05-06 10:49:01.975",
+        "application": "Cursor",
+        "flight_time": 0.297,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:49:02.161",
+        "application": "Cursor",
+        "flight_time": 0.186,
+        "command_type": null
+    },
+    {
+        "key": "l",
+        "timestamp": "2025-05-06 10:49:02.233",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null,
+        "hold_time": 0.101
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:49:02.329",
+        "application": "Cursor",
+        "flight_time": 0.096,
+        "command_type": null,
+        "hold_time": 0.16
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:02.399",
+        "application": "Cursor",
+        "flight_time": 0.07,
+        "command_type": null,
+        "hold_time": 0.109
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:02.544",
+        "application": "Cursor",
+        "flight_time": 0.145,
+        "command_type": null
+    },
+    {
+        "key": "d",
+        "timestamp": "2025-05-06 10:49:02.583",
+        "application": "Cursor",
+        "flight_time": 0.039,
+        "command_type": null,
+        "hold_time": 0.059
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:49:02.663",
+        "application": "Cursor",
+        "flight_time": 0.08,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:02.706",
+        "application": "Cursor",
+        "flight_time": 0.044,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "v",
+        "timestamp": "2025-05-06 10:49:02.803",
+        "application": "Cursor",
+        "flight_time": 0.097,
+        "command_type": null,
+        "hold_time": 0.085
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:49:02.985",
+        "application": "Cursor",
+        "flight_time": 0.182,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:03.801",
+        "application": "Cursor",
+        "flight_time": 0.815,
+        "command_type": "backspace",
+        "hold_time": 0.064
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:03.929",
+        "application": "Cursor",
+        "flight_time": 0.129,
+        "command_type": "backspace",
+        "hold_time": 0.09
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:04.149",
+        "application": "Cursor",
+        "flight_time": 0.22,
+        "command_type": null,
+        "hold_time": 0.123
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:49:04.755",
+        "application": "Cursor",
+        "flight_time": 0.606,
+        "command_type": null
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:49:04.871",
+        "application": "Cursor",
+        "flight_time": 0.116,
+        "command_type": null,
+        "hold_time": 0.124
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:49:04.944",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:05.334",
+        "application": "Cursor",
+        "flight_time": 0.39,
+        "command_type": null
+    },
+    {
+        "key": ":",
+        "timestamp": "2025-05-06 10:49:05.530",
+        "application": "Cursor",
+        "flight_time": 0.196,
+        "command_type": null,
+        "hold_time": 0.368
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:05.737",
+        "application": "Cursor",
+        "flight_time": 0.208,
+        "command_type": null,
+        "hold_time": 0.128
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:49:06.265",
+        "application": "Cursor",
+        "flight_time": 0.528,
+        "command_type": "cursor_movement",
+        "hold_time": 0.097
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:49:06.436",
+        "application": "Cursor",
+        "flight_time": 0.17,
+        "command_type": "cursor_movement",
+        "hold_time": 0.092
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:49:06.763",
+        "application": "Cursor",
+        "flight_time": 0.327,
+        "command_type": "cursor_movement",
+        "hold_time": 0.097
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:49:07.876",
+        "application": "Cursor",
+        "flight_time": 1.113,
+        "command_type": null,
+        "hold_time": 0.135
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:49:08.190",
+        "application": "Cursor",
+        "flight_time": 0.314,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "p",
+        "timestamp": "2025-05-06 10:49:11.337",
+        "application": "Cursor",
+        "flight_time": 3.146,
+        "command_type": null,
+        "hold_time": 0.092
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:11.789",
+        "application": "Cursor",
+        "flight_time": 0.452,
+        "command_type": null
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:49:11.869",
+        "application": "Cursor",
+        "flight_time": 0.08,
+        "command_type": null,
+        "hold_time": 0.101
+    },
+    {
+        "key": "n",
+        "timestamp": "2025-05-06 10:49:11.948",
+        "application": "Cursor",
+        "flight_time": 0.08,
+        "command_type": null,
+        "hold_time": 0.129
+    },
+    {
+        "key": "t",
+        "timestamp": "2025-05-06 10:49:12.122",
+        "application": "Cursor",
+        "flight_time": 0.174,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:13.187",
+        "application": "Cursor",
+        "flight_time": 1.065,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:49:13.390",
+        "application": "Cursor",
+        "flight_time": 0.203,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:49:13.457",
+        "application": "Cursor",
+        "flight_time": 0.067,
+        "command_type": null,
+        "hold_time": 0.436
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:49:14.216",
+        "application": "Cursor",
+        "flight_time": 0.759,
+        "command_type": "cursor_movement",
+        "hold_time": 0.065
+    },
+    {
+        "key": "f",
+        "timestamp": "2025-05-06 10:49:14.409",
+        "application": "Cursor",
+        "flight_time": 0.193,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:14.721",
+        "application": "Cursor",
+        "flight_time": 0.312,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:15.204",
+        "application": "Cursor",
+        "flight_time": 0.483,
+        "command_type": "backspace",
+        "hold_time": 0.037
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:15.789",
+        "application": "Cursor",
+        "flight_time": 0.584,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:49:15.967",
+        "application": "Cursor",
+        "flight_time": 0.178,
+        "command_type": null,
+        "hold_time": 0.364
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:16.173",
+        "application": "Cursor",
+        "flight_time": 0.206,
+        "command_type": null,
+        "hold_time": 0.131
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:49:18.652",
+        "application": "Cursor",
+        "flight_time": 2.48,
+        "command_type": null,
+        "hold_time": 0.016
+    },
+    {
+        "key": "A",
+        "timestamp": "2025-05-06 10:49:18.687",
+        "application": "Cursor",
+        "flight_time": 0.035,
+        "command_type": null
+    },
+    {
+        "key": "Key.caps_lock",
+        "timestamp": "2025-05-06 10:49:18.766",
+        "application": "Cursor",
+        "flight_time": 0.079,
+        "command_type": null,
+        "hold_time": 0.007
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:18.839",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null,
+        "hold_time": 0.145
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:49:19.296",
+        "application": "Cursor",
+        "flight_time": 0.458,
+        "command_type": null
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:49:19.389",
+        "application": "Cursor",
+        "flight_time": 0.093,
+        "command_type": null,
+        "hold_time": 0.069
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:19.578",
+        "application": "Cursor",
+        "flight_time": 0.188,
+        "command_type": null
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:49:19.625",
+        "application": "Cursor",
+        "flight_time": 0.048,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:49:19.846",
+        "application": "Cursor",
+        "flight_time": 0.221,
+        "command_type": null,
+        "hold_time": 0.103
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:20.016",
+        "application": "Cursor",
+        "flight_time": 0.17,
+        "command_type": null,
+        "hold_time": 0.104
+    },
+    {
+        "key": "d",
+        "timestamp": "2025-05-06 10:49:20.279",
+        "application": "Cursor",
+        "flight_time": 0.263,
+        "command_type": null
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:49:20.385",
+        "application": "Cursor",
+        "flight_time": 0.106,
+        "command_type": null,
+        "hold_time": 0.073
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:20.473",
+        "application": "Cursor",
+        "flight_time": 0.088,
+        "command_type": null,
+        "hold_time": 0.074
+    },
+    {
+        "key": "c",
+        "timestamp": "2025-05-06 10:49:21.364",
+        "application": "Cursor",
+        "flight_time": 0.891,
+        "command_type": null,
+        "hold_time": 0.074
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:49:21.455",
+        "application": "Cursor",
+        "flight_time": 0.091,
+        "command_type": null
+    },
+    {
+        "key": "i",
+        "timestamp": "2025-05-06 10:49:21.689",
+        "application": "Cursor",
+        "flight_time": 0.234,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:21.772",
+        "application": "Cursor",
+        "flight_time": 0.083,
+        "command_type": null,
+        "hold_time": 0.1
+    },
+    {
+        "key": "c",
+        "timestamp": "2025-05-06 10:49:22.191",
+        "application": "Cursor",
+        "flight_time": 0.419,
+        "command_type": null
+    },
+    {
+        "key": "u",
+        "timestamp": "2025-05-06 10:49:22.283",
+        "application": "Cursor",
+        "flight_time": 0.092,
+        "command_type": null,
+        "hold_time": 0.055
+    },
+    {
+        "key": "l",
+        "timestamp": "2025-05-06 10:49:22.497",
+        "application": "Cursor",
+        "flight_time": 0.214,
+        "command_type": null
+    },
+    {
+        "key": "o",
+        "timestamp": "2025-05-06 10:49:22.597",
+        "application": "Cursor",
+        "flight_time": 0.1,
+        "command_type": null,
+        "hold_time": 0.157
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:22.704",
+        "application": "Cursor",
+        "flight_time": 0.107,
+        "command_type": null,
+        "hold_time": 0.101
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:49:22.889",
+        "application": "Cursor",
+        "flight_time": 0.184,
+        "command_type": null
+    },
+    {
+        "key": "\u00e9",
+        "timestamp": "2025-05-06 10:49:22.961",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:23.072",
+        "application": "Cursor",
+        "flight_time": 0.112,
+        "command_type": null,
+        "hold_time": 0.1
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:24.731",
+        "application": "Cursor",
+        "flight_time": 1.659,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:49:24.824",
+        "application": "Cursor",
+        "flight_time": 0.093,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:49:24.927",
+        "application": "Cursor",
+        "flight_time": 0.102,
+        "command_type": null,
+        "hold_time": 0.488
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:25.889",
+        "application": "Cursor",
+        "flight_time": 0.962,
+        "command_type": "backspace",
+        "hold_time": 0.072
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:26.037",
+        "application": "Cursor",
+        "flight_time": 0.148,
+        "command_type": "backspace",
+        "hold_time": 0.071
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:26.829",
+        "application": "Cursor",
+        "flight_time": 0.792,
+        "command_type": "backspace",
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:27.302",
+        "application": "Cursor",
+        "flight_time": 0.472,
+        "command_type": null
+    },
+    {
+        "key": ":",
+        "timestamp": "2025-05-06 10:49:27.441",
+        "application": "Cursor",
+        "flight_time": 0.14,
+        "command_type": null,
+        "hold_time": 0.059
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:27.573",
+        "application": "Cursor",
+        "flight_time": 0.132,
+        "command_type": null,
+        "hold_time": 0.135
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:27.764",
+        "application": "Cursor",
+        "flight_time": 0.191,
+        "command_type": null
+    },
+    {
+        "key": "{",
+        "timestamp": "2025-05-06 10:49:28.100",
+        "application": "Cursor",
+        "flight_time": 0.336,
+        "command_type": null,
+        "hold_time": 0.484
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:28.295",
+        "application": "Cursor",
+        "flight_time": 0.195,
+        "command_type": null,
+        "hold_time": 0.092
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:28.966",
+        "application": "Cursor",
+        "flight_time": 0.67,
+        "command_type": "backspace",
+        "hold_time": 0.036
+    },
+    {
+        "key": "3",
+        "timestamp": "2025-05-06 10:49:29.525",
+        "application": "Cursor",
+        "flight_time": 0.56,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": ".",
+        "timestamp": "2025-05-06 10:49:30.619",
+        "application": "Cursor",
+        "flight_time": 1.094,
+        "command_type": null,
+        "hold_time": 0.076
+    },
+    {
+        "key": "1",
+        "timestamp": "2025-05-06 10:49:30.791",
+        "application": "Cursor",
+        "flight_time": 0.172,
+        "command_type": null,
+        "hold_time": 0.121
+    },
+    {
+        "key": "4",
+        "timestamp": "2025-05-06 10:49:31.019",
+        "application": "Cursor",
+        "flight_time": 0.228,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "1",
+        "timestamp": "2025-05-06 10:49:35.113",
+        "application": "Cursor",
+        "flight_time": 4.094,
+        "command_type": null,
+        "hold_time": 0.136
+    },
+    {
+        "key": "5",
+        "timestamp": "2025-05-06 10:49:35.759",
+        "application": "Cursor",
+        "flight_time": 0.646,
+        "command_type": null,
+        "hold_time": 0.08
+    },
+    {
+        "key": "9",
+        "timestamp": "2025-05-06 10:49:35.925",
+        "application": "Cursor",
+        "flight_time": 0.166,
+        "command_type": null,
+        "hold_time": 0.072
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:37.186",
+        "application": "Cursor",
+        "flight_time": 1.26,
+        "command_type": null,
+        "hold_time": 0.106
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:37.484",
+        "application": "Cursor",
+        "flight_time": 0.298,
+        "command_type": null
+    },
+    {
+        "key": "*",
+        "timestamp": "2025-05-06 10:49:37.620",
+        "application": "Cursor",
+        "flight_time": 0.136,
+        "command_type": null,
+        "hold_time": 0.342
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:37.924",
+        "application": "Cursor",
+        "flight_time": 0.304,
+        "command_type": null,
+        "hold_time": 0.103
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:38.593",
+        "application": "Cursor",
+        "flight_time": 0.669,
+        "command_type": null,
+        "hold_time": 0.099
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:39.045",
+        "application": "Cursor",
+        "flight_time": 0.452,
+        "command_type": null,
+        "hold_time": 0.093
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:41.880",
+        "application": "Cursor",
+        "flight_time": 2.835,
+        "command_type": "backspace",
+        "hold_time": 0.097
+    },
+    {
+        "key": "Key.backspace",
+        "timestamp": "2025-05-06 10:49:42.062",
+        "application": "Cursor",
+        "flight_time": 0.182,
+        "command_type": "backspace",
+        "hold_time": 0.095
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:42.782",
+        "application": "Cursor",
+        "flight_time": 0.72,
+        "command_type": null
+    },
+    {
+        "key": "(",
+        "timestamp": "2025-05-06 10:49:42.938",
+        "application": "Cursor",
+        "flight_time": 0.156,
+        "command_type": null
+    },
+    {
+        "key": ")",
+        "timestamp": "2025-05-06 10:49:42.981",
+        "application": "Cursor",
+        "flight_time": 0.043,
+        "command_type": null,
+        "hold_time": 0.39
+    },
+    {
+        "key": "Key.left",
+        "timestamp": "2025-05-06 10:49:43.862",
+        "application": "Cursor",
+        "flight_time": 0.881,
+        "command_type": "cursor_movement",
+        "hold_time": 0.076
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:44.136",
+        "application": "Cursor",
+        "flight_time": 0.274,
+        "command_type": null,
+        "hold_time": 0.094
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:44.542",
+        "application": "Cursor",
+        "flight_time": 0.406,
+        "command_type": null,
+        "hold_time": 0.101
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:44.800",
+        "application": "Cursor",
+        "flight_time": 0.259,
+        "command_type": null
+    },
+    {
+        "key": "*",
+        "timestamp": "2025-05-06 10:49:45.495",
+        "application": "Cursor",
+        "flight_time": 0.695,
+        "command_type": null,
+        "hold_time": 0.055
+    },
+    {
+        "key": "*",
+        "timestamp": "2025-05-06 10:49:45.638",
+        "application": "Cursor",
+        "flight_time": 0.142,
+        "command_type": null,
+        "hold_time": 1.014
+    },
+    {
+        "key": "Key.space",
+        "timestamp": "2025-05-06 10:49:45.825",
+        "application": "Cursor",
+        "flight_time": 0.188,
+        "command_type": null,
+        "hold_time": 0.074
+    },
+    {
+        "key": "2",
+        "timestamp": "2025-05-06 10:49:46.000",
+        "application": "Cursor",
+        "flight_time": 0.175,
+        "command_type": null,
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:49:46.674",
+        "application": "Cursor",
+        "flight_time": 0.673,
+        "command_type": "cursor_movement",
+        "hold_time": 0.084
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:49:46.851",
+        "application": "Cursor",
+        "flight_time": 0.177,
+        "command_type": "cursor_movement",
+        "hold_time": 0.105
+    },
+    {
+        "key": "Key.shift",
+        "timestamp": "2025-05-06 10:49:47.387",
+        "application": "Cursor",
+        "flight_time": 0.536,
+        "command_type": null
+    },
+    {
+        "key": null,
+        "timestamp": "2025-05-06 10:49:47.673",
+        "application": "Cursor",
+        "flight_time": 0.285,
+        "command_type": null,
+        "hold_time": 0.452
+    },
+    {
+        "key": "Key.right",
+        "timestamp": "2025-05-06 10:49:48.204",
+        "application": "Cursor",
+        "flight_time": 0.532,
+        "command_type": "cursor_movement",
+        "hold_time": 0.096
+    },
+    {
+        "key": "5",
+        "timestamp": "2025-05-06 10:49:54.129",
+        "application": "Cursor",
+        "flight_time": 5.925,
+        "command_type": null,
+        "hold_time": 0.112
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:49:54.452",
+        "application": "Cursor",
+        "flight_time": 0.323,
+        "command_type": null,
+        "hold_time": 0.119
+    },
+    {
+        "key": "c",
+        "timestamp": "2025-05-06 10:49:56.837",
+        "application": "Cursor",
+        "flight_time": 2.385,
+        "command_type": null
+    },
+    {
+        "key": "l",
+        "timestamp": "2025-05-06 10:49:56.932",
+        "application": "Cursor",
+        "flight_time": 0.095,
+        "command_type": null,
+        "hold_time": 0.059
+    },
+    {
+        "key": "e",
+        "timestamp": "2025-05-06 10:49:57.048",
+        "application": "Cursor",
+        "flight_time": 0.116,
+        "command_type": null
+    },
+    {
+        "key": "a",
+        "timestamp": "2025-05-06 10:49:57.142",
+        "application": "Cursor",
+        "flight_time": 0.094,
+        "command_type": null,
+        "hold_time": 0.145
+    },
+    {
+        "key": "r",
+        "timestamp": "2025-05-06 10:49:57.282",
+        "application": "Cursor",
+        "flight_time": 0.14,
+        "command_type": null,
+        "hold_time": 0.151
+    },
+    {
+        "key": "Key.enter",
+        "timestamp": "2025-05-06 10:49:57.354",
+        "application": "Cursor",
+        "flight_time": 0.072,
+        "command_type": null,
+        "hold_time": 0.067
+    }
+]

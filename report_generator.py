@@ -73,7 +73,6 @@ class ReportGenerator:
         story.append(Paragraph(f"Total de eventos registrados: {self.report_data['typing_metrics']['total_events']}", self.styles['CustomBodyText']))
         
         story.append(Spacer(1, 0.3*inch))
-        story.append(Paragraph("Este relatório foi gerado automaticamente pelo sistema de análise de comportamento de digitação.", self.styles['CustomBodyText']))
         story.append(PageBreak())
     
     def _create_typing_metrics_section(self, story):
@@ -120,7 +119,7 @@ class ReportGenerator:
         story.append(Paragraph("Análise de Comandos Suspeitos", self.styles['CustomHeading2']))
         
         data = [
-            ["Total de Comandos Suspeitos", str(self.report_data['suspicious_commands']['total_commands'])],
+            ["Total de Comandos Suspeitos", f"{self.report_data['suspicious_commands']['total_commands']}/{self.report_data['typing_metrics']['total_events']}"],
             ["Porcentagem", f"{self.report_data['suspicious_commands']['suspicious_percentage']}%"]
         ]
         
@@ -143,6 +142,15 @@ class ReportGenerator:
         
         story.append(table)
         story.append(Spacer(1, 0.2*inch))
+        
+        # Adiciona explicação sobre a Distância de Manhattan
+        story.append(Paragraph("Sobre a Distância de Manhattan:", self.styles['CustomBodyText']))
+        story.append(Paragraph("• A Distância de Manhattan é uma métrica que mede a diferença absoluta entre dois pontos em um espaço n-dimensional", self.styles['CustomBodyText']))
+        story.append(Paragraph("• No contexto da análise de digitação, ela é calculada como a soma das diferenças absolutas entre:", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - Tempo médio de pressionamento (hold time) do segmento vs. tempo base", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - Tempo médio entre teclas (flight time) do segmento vs. tempo base", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Um segmento é considerado suspeito quando sua distância de Manhattan excede um limiar determinado", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Isso ajuda a identificar padrões de digitação que se desviam significativamente do comportamento normal", self.styles['CustomBodyText']))
         
         story.append(PageBreak())
     
@@ -178,11 +186,18 @@ class ReportGenerator:
         story.append(table)
         story.append(Spacer(1, 0.2*inch))
         
-        # Adiciona uma explicação sobre o Z-score
-        story.append(Paragraph("Sobre o Z-score:", self.styles['CustomBodyText']))
-        story.append(Paragraph("• O Z-score mede quantos desvios padrão um valor está da média", self.styles['CustomBodyText']))
-        story.append(Paragraph("• Valores com |Z-score| > 3 são considerados outliers", self.styles['CustomBodyText']))
-        story.append(Paragraph("• Muitos outliers podem indicar comportamento irregular de digitação", self.styles['CustomBodyText']))
+        # Adiciona uma explicação detalhada sobre o Z-score
+        story.append(Paragraph("Sobre o Z-score e a Detecção de Outliers:", self.styles['CustomBodyText']))
+        story.append(Paragraph("• O Z-score é uma medida estatística que indica quantos desvios padrão um valor está da média da distribuição", self.styles['CustomBodyText']))
+        story.append(Paragraph("• É calculado como: Z = (X - μ) / σ, onde:", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - X é o valor observado", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - μ é a média da distribuição", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - σ é o desvio padrão da distribuição", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Valores com |Z-score| > 3 são considerados outliers, pois estão a mais de 3 desvios padrão da média", self.styles['CustomBodyText']))
+        story.append(Paragraph("• Na análise de digitação, outliers podem indicar:", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - Pausas anormais entre teclas", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - Tempos de pressionamento inconsistentes", self.styles['CustomBodyText']))
+        story.append(Paragraph("  - Possível uso de automação ou comportamento não humano", self.styles['CustomBodyText']))
         
         if self.report_data['outlier_counts']['hold_time_outliers'] > 5 or self.report_data['outlier_counts']['flight_time_outliers'] > 5:
             story.append(Spacer(1, 0.2*inch))
@@ -306,6 +321,7 @@ class ReportGenerator:
         story.append(Paragraph(" |← = Backspace", self.styles['CustomBodyText']))
         story.append(Paragraph("  →| = Tab (tabulação)", self.styles['CustomBodyText']))
         story.append(Paragraph("  →  ←  ↓  ↑  = Movimento do cursor", self.styles['CustomBodyText']))
+        story.append(Paragraph("Sequências de uso da tecla tab podem indicar uso do auto-complete das IDEs", self.styles['CustomBodyText']))
         story.append(PageBreak())
     
     def generate_pdf(self):
