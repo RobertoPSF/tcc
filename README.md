@@ -91,8 +91,8 @@ Se encontrar algum problema ou tiver dúvidas, por favor abra uma issue no repos
 stateDiagram-v2
     [*] --> IniciarAtividade: aluno abre o ambiente de programação
     IniciarAtividade --> ColetandoDados: digitação começa a ser monitorada
-    ColetandoDados --> JsonGerado: aluno finaliza a tarefa
+    ColetaDeDados --> JsonGerado: aluno finaliza a tarefa
     JsonGerado --> Envio: professor recebe o JSON por algum método de submissão
     Envio --> AnalisandoDados: professor carrega o arquivo JSON
-    AnalisandoDados --> RelatorioGerado: sistema executa a análise
-    RelatorioGerado --> [*]: relatório entregue ao professor
+    AnaliseEstatística --> RelatorioGerado: sistema executa a análise
+    GeraçãoDeRelatório --> [*]: relatório entregue ao professor
