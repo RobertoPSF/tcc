@@ -89,7 +89,6 @@ Se encontrar algum problema ou tiver dúvidas, por favor abra uma issue no repos
 
 ```mermaid
 stateDiagram-v2
-    direction LR
     [*] --> IniciarAtividade: aluno abre o ambiente de programação
     IniciarAtividade --> ColetandoDados: digitação começa a ser monitorada
     ColetandoDados --> JsonGerado: aluno finaliza a tarefa
