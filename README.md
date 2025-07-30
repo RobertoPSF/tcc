@@ -93,6 +93,6 @@ stateDiagram-v2
     IniciarAtividade --> ColetaDeDados: digitação começa a ser monitorada
     ColetaDeDados --> JsonGerado: aluno finaliza a tarefa
     JsonGerado --> Envio: professor recebe o JSON por algum método de submissão
-    Envio --> AnaliseEstatístic: professor carrega o arquivo JSON
+    Envio --> AnaliseEstatística: professor carrega o arquivo JSON
     AnaliseEstatística --> GeraçãoDeRelatório: sistema executa a análise
     GeraçãoDeRelatório --> [*]: relatório entregue ao professor
