@@ -84,3 +84,14 @@ Os relatórios gerados incluem:
 ## Suporte
 
 Se encontrar algum problema ou tiver dúvidas, por favor abra uma issue no repositório.
+
+### Diagrama de Estados
+
+```mermaid
+stateDiagram-v2
+    [*] --> IniciarAtividade
+    IniciarAtividade --> ColetandoDados
+    ColetandoDados --> JsonGerado
+    JsonGerado --> AnalisandoDados
+    AnalisandoDados --> RelatorioGerado
+    RelatorioGerado --> [*]
