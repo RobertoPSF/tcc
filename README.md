@@ -90,9 +90,9 @@ Se encontrar algum problema ou tiver dúvidas, por favor abra uma issue no repos
 ```mermaid
 stateDiagram-v2
     [*] --> IniciarAtividade: aluno abre o ambiente de programação
-    IniciarAtividade --> ColetandoDados: digitação começa a ser monitorada
+    IniciarAtividade --> ColetaDeDados: digitação começa a ser monitorada
     ColetaDeDados --> JsonGerado: aluno finaliza a tarefa
     JsonGerado --> Envio: professor recebe o JSON por algum método de submissão
-    Envio --> AnalisandoDados: professor carrega o arquivo JSON
-    AnaliseEstatística --> RelatorioGerado: sistema executa a análise
+    Envio --> AnaliseEstatístic: professor carrega o arquivo JSON
+    AnaliseEstatística --> GeraçãoDeRelatório: sistema executa a análise
     GeraçãoDeRelatório --> [*]: relatório entregue ao professor
